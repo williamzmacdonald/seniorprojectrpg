@@ -20,16 +20,16 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/seniorprojectrpg/public">Home</a>
+                        <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/seniorprojectrpg/public/about">About</a>
+                        <a class="nav-link" href="about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/seniorprojectrpg/public/services">Services</a>
+                        <a class="nav-link" href="services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/seniorprojectrpg/public/rooms">Rooms</a>
+                        <a class="nav-link" href="rooms">Rooms</a>
                     </li>
                 </ul>
                 
