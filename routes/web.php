@@ -11,18 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
-		'name' => 'World'
-	]);
-});
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/login', function () {
-    return view('login.index');
-});
-Route::get('/rooms', function () {
-	$rooms = App\gameroom::all();
-    return view('rooms.index', compact('rooms'));
-});
+
+
+Route::get('/', 'PagesController@index');
+Route::get('/about', 'PagesController@about');
+Route::get('/services', 'PagesController@services');
+Route::get('/login', 'PagesController@login');
+Route::get('/rooms', 'RoomsController@index');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
