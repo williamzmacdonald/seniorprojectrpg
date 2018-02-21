@@ -1,18 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-		<h1>Here are some game rooms!</h1>
-		<form class="form-horizontal" method="POST" action="joinroom">
-		@foreach ($rooms as $room)
-		
-			<h2>{{ $room->title }} 
-				<button type="submit" name = " {{ $room->id }} " class="btn btn-primary">
-					Join Room
-                </button>
-			</h2>
-		@endforeach
-		</form>
-		<a class="btn btn-primary" href="createroom">Create Room</a>
-    </div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4" style="width:585px;">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading clearfix">
+					<h4 class="panel-title pull-left" style="padding-top: 7.5 px">Your Game Rooms:</h4>
+					<a class="btn btn-default pull-right" href="{{ url('rooms/create') }}">Create Room</a>
+				</div>
+				<ul class="list-group clearfix">
+					<li class="list-group-item clearfix">
+						<h5 class="pull-left">Game Room 1</h5>
+						<a class="btn btn-default pull-right" href="rooms">View</a>
+					</li>
+					<li class="list-group-item clearfix">
+						<h5 class="pull-left">Game Room 2</h5>
+						<a class="btn btn-default pull-right" href="rooms">View</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	
+		<div class="col-md-4" style="width:585px;">
+			<div class="panel panel-default">
+				<div class="panel-heading">Game Rooms To Join:</div>
+				<ul class="list-group clearfix">
+					<form class="form-horizontal" method="POST" action="joinroom">
+						@foreach ($rooms as $room)
+							<li class="list-group-item clearfix">
+								<h5 class="pull-left">{{ $room->title }}</h5>
+								<button type="submit" name = " {{ $room->id }} " class="btn btn-default pull-right">
+										Join Room
+								</button>
+							</li>
+						@endforeach
+					</form>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 @endsection

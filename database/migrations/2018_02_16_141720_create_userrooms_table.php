@@ -17,7 +17,8 @@ class CreateUserroomsTable extends Migration
             $table->integer('userid');
 			$table->integer('roomid');
 			$table->boolean('gamemaster');
-			$table->string('nickname');
+            $table->string('nickname');
+            $table->timestamps();
         });
     }
 

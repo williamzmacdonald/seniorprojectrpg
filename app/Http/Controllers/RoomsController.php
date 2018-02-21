@@ -21,11 +21,12 @@ class RoomsController extends Controller
 	{
 		$this->validate(request(), [
 			'title' => 'required',
-			'body' => 'required'
+			'password' => 'required'
 		]);
 		$gameroom = new \App\gameroom;
 		$gameroom->title = request('title');
-		$gameroom->password = Hash::make($request('password'));
+		$gameroom->password = request('password');
+		//Hash::make($request('password'));
 		$gameroom->save();
 		
 		return redirect('/rooms');

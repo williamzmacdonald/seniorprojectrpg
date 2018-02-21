@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-static-top">
+<nav class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
 
@@ -23,13 +23,13 @@
                         <a class="nav-link" href="{{ url('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about">About</a>
+                        <a class="nav-link" href="{{ url('about') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="services">Services</a>
+                        <a class="nav-link" href="{{ url('services') }}">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="rooms">Rooms</a>
+                        <a class="nav-link" href="{{ url('rooms') }}">Rooms</a>
                     </li>
                 </ul>
                 
