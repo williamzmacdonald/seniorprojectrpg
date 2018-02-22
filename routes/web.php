@@ -19,7 +19,7 @@ Route::get('/services', 'PagesController@services');
 Route::get('/login', 'PagesController@login');
 Route::get('/rooms', 'RoomsController@index');
 Route::get('/rooms/create', 'RoomsController@create');
-Route::get('/rooms/{id}', 'RoomsController@show');
+Route::get('/rooms/{room}', 'RoomsController@show');
 Route::post('/rooms', 'RoomsController@store');
 
 Auth::routes();

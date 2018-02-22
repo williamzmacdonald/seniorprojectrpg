@@ -14,7 +14,7 @@ class CreateGameroomsTable extends Migration
     public function up()
     {
         Schema::create('gamerooms', function (Blueprint $table) {
-            $table->increments('roomid');
+            $table->increments('id');
 			$table->text('title');
             $table->text('password');
             $table->timestamps();

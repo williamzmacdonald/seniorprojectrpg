@@ -27,16 +27,14 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Game Rooms To Join:</div>
 				<ul class="list-group clearfix">
-					<form class="form-horizontal" method="POST" action="joinroom">
 						@foreach ($rooms as $room)
 							<li class="list-group-item clearfix">
 								<h5 class="pull-left">{{ $room->title }}</h5>
-								<button type="submit" name = " {{ $room->id }} " class="btn btn-default pull-right">
+								<a href = "rooms/{{ $room->id }}" class="btn btn-default pull-right">
 										Join Room
-								</button>
+								</a>
 							</li>
 						@endforeach
-					</form>
 				</ul>
 			</div>
 		</div>

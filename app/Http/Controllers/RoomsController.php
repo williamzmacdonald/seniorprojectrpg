@@ -31,8 +31,8 @@ class RoomsController extends Controller
 		
 		return redirect('/rooms');
 	}
-	public function show(gameroom $gameroom)
+	public function show(gameroom $room)
 	{
-		return view('rooms.show', compact('gameroom'));
+		return view('rooms.show', compact('room'));
 	}
 }
