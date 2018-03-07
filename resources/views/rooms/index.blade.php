@@ -31,7 +31,7 @@
 							@foreach ($rooms as $room)
 								<li class="list-group-item clearfix">
 									<h5 class="pull-left">{{ $room->title }}</h5>
-									<a href = "rooms/{{ $room->id }}" class="btn btn-default pull-right">
+									<a href = "rooms/{{ $room->joinlink }}" class="btn btn-default pull-right">
 											Join Room
 									</a>
 								</li>

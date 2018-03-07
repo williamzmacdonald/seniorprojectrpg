@@ -16,7 +16,8 @@ class CreateGameroomsTable extends Migration
         Schema::create('gamerooms', function (Blueprint $table) {
             $table->increments('id');
 			$table->text('title');
-            $table->text('password');
+            $table->text('description');
+			$table->text('joinlink');
             $table->timestamps();
         });
     }
