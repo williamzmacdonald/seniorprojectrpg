@@ -23,13 +23,7 @@ class RoomsController extends Controller
     public function index()
 	{
 		$user = \Auth::user();
-		$userrooms = userroom::where('userid', $user->id)->get();
-		$query = DB::table('gamerooms');
-		foreach ($userrooms as $userroom)
-		{
-			$query->orWhere('id', $userroom->roomid);
-		}
-		$rooms = $query->get();
+		$rooms = $user->gamerooms;
 		return view('rooms.index', compact('rooms'));    
 	}
 	public function create()
@@ -53,19 +47,15 @@ class RoomsController extends Controller
 	{
 		$user = \Auth::user();
 		$room = gameroom::where('joinlink', $joinlink)->first();
-		$roomuser = userroom::where('userid', $user->id)->where('roomid', $room->id)->get();
-		if($roomuser->isEmpty())
+		$hasPivot = $user->gamerooms()->where('id', $room->id)->exists();
+		if(!$hasPivot)
 		{
-			$roomuser = new userroom;
-			$roomuser->roomid = $room->id;
-			$roomuser->userid = $user->id;
-			if(userroom::first()==null)
-				$roomuser->gamemaster = true;
+			if($room->users()->exists())
+				$room->users()->save($user, ['gamemaster' => false, 'nickname' => $user->name]);
 			else
-				$roomuser->gamemaster = false;
-			$roomuser->nickname = $user->name;
-			$roomuser->save();
+				$room->users()->save($user, ['gamemaster' => true, 'nickname' => $user->name]);
 		}
+		
 		return view('rooms.show', compact('room'));
 	}
 }

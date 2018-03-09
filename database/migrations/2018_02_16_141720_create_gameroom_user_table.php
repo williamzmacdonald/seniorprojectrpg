@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserroomsTable extends Migration
+class CreateGameroomUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateUserroomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('userrooms', function (Blueprint $table) {
-            $table->integer('userid');
-			$table->integer('roomid');
+        Schema::create('gameroom_user', function (Blueprint $table) {
+            $table->integer('user_id');
+			$table->integer('gameroom_id');
 			$table->boolean('gamemaster');
             $table->string('nickname');
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateUserroomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('userrooms');
+        Schema::dropIfExists('gameroom_user');
     }
 }
