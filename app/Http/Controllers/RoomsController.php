@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\gameroom;
 use App\userroom;
-
+//generates random url, used on room creation
 function randomURL($URLlength = 8) {
 	$url = "";
     $charray = array_merge(range('a','z'), range('0','9'));
@@ -19,13 +19,13 @@ function randomURL($URLlength = 8) {
     return $url;
 }
 class RoomsController extends Controller
-{
+{//only allow users that are logged in to view rooms
 	public function __construct()
 	{
 		$this->middleware('auth');
 	}
     public function index()
-	{
+	{ //fetch the user and gamerooms associated with that user
 		$user = \Auth::user();
 		$rooms = $user->gamerooms;
 		return view('rooms.index', compact('rooms'));    
@@ -36,27 +36,33 @@ class RoomsController extends Controller
 	}
 	public function store()
 	{
+		//require title and description
 		$this->validate(request(), [
 			'title' => 'required',
 			'description' => 'required'
 		]);
+		//create gameroom and save to table
 		$gameroom = new \App\gameroom;
 		$gameroom->title = request('title');
 		$gameroom->description = request('description');
 		$gameroom->joinlink = randomURL(10);
 		$gameroom->save();
+		//redirect to the generated url
 		return redirect("/rooms/$gameroom->joinlink");
 	}
 	public function show(string $joinlink)
 	{
+		//get user and get room by given URL
 		$user = \Auth::user();
 		$room = gameroom::where('joinlink', $joinlink)->first();
+		//check if a relation between the user and gameroom already exists
 		$hasPivot = $user->gamerooms()->where('id', $room->id)->exists();
+		//if not we create the relation
 		if(!$hasPivot)
-		{
+		{	//check if any users exist in the room, if not then the first user is the gamemaster
 			if($room->users()->exists())
 				$room->users()->save($user, ['gamemaster' => false, 'nickname' => $user->name]);
-			else
+			else //if someone exists in the relationship then player is not a gamemaster
 				$room->users()->save($user, ['gamemaster' => true, 'nickname' => $user->name]);
 		}
 		
