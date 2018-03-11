@@ -1,16 +1,56 @@
-body{
-  background: black;
-  color: white;
+@font-face {
+  font-family: "Assassin";
+  src: url("../fonts/Assassin.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
 }
 
-.intro {
-  display: table;
+@font-face {
+  font-family: "A";
+  src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
+}
+
+.character-image {
+  width: 30%;
+  height: 92%;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.background {
+  background-image: url(../img/parch.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: white;
+}
+
+.intro .brand-heading,
+.intro .intro-text,
+.intro .btn,
+.navbar-custom {
+  font-family: 'Assassin';
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body{
+  background-image: url(../img/parch.jpg);
+  background-repeat: repeat-y;
+  color: white;
+  margin-bottom: 60px;
+}
+
+.room {
   width: 100%;
   min-height: 750px;
-  padding: 100px 0;
-  text-align: center;
-  color: white;
-  background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+  padding: 250px 0;
+  background: url(../img/room-bg.jpg) no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -18,10 +58,40 @@ body{
   -o-background-size: cover;
 }
 
-.intro .btn-primary {
-  border: 1px solid firebrick;
+.intro {
+  width: 100%;
+  min-height: 500px;
+  padding: 150px 0;
+  text-align: center;
+  color: white;
+  background: url(../img/intro-bg-1.jpg) no-repeat bottom center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.intro .brand-heading{
+  font-size: 50px;
+}
+
+.intro .intro-text{
+  font-size: 25px;
+  text-transform: lowercase;
+  line-height: 80%;
+  text-shadow: 0.25px 0.25px white;
+}
+
+.intro .btn{
   outline: none;
   color:white;
+  font-size: 22px;
+  line-height: 60%;
+}
+
+.intro .btn-primary {
+  border: 1px solid firebrick;
   background-color:firebrick;
 }
 
@@ -31,8 +101,6 @@ body{
 
 .intro .btn-success {
   border: 1px solid green;
-  outline: none;
-  color:white;
   background-color:green;
 }
 
@@ -54,75 +122,278 @@ p{
   color: white;
 }
 
-.navbar .navbar-toggle {
+.navbar-custom {
+  color: white;
+  background-color:black;
+  font-size: 24px;
+  font-stretch: 1px;
+}
+
+.navbar-custom .navbar-toggle {
   color: white;
   background-color:black;
   font-size: 12px;
 }
-.navbar .navbar-toggle:hover {
+
+.navbar-custom .navbar-toggle:hover {
   background-color:dimgrey;
 }
-.navbar .navbar-toggle:focus,
-.navbar .navbar-toggle:active {
+.navbar-custom .navbar-toggle:focus,
+.navbar-custom .navbar-toggle:active {
   outline: none;
 }
-.navbar .navbar-brand {
+.navbar-custom .navbar-brand {
   font-weight: 700;
 }
-.navbar .navbar-brand:focus {
+.navbar-custom .navbar-brand:focus {
   outline: none;
 }
-.navbar a {
+.navbar-custom a{
   color: white;
 }
-.navbar .nav li a {
+.navbar-custom .nav li a {
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
   transition: background 0.3s ease-in-out;
 }
-.navbar .nav li a:hover {
-  color: gainsboro;
+.navbar-custom .nav li a:hover,
+.footer a:hover {
+  color: #db2727;
   outline: none;
   background-color: transparent;
 }
-.navbar .nav li a:focus,
-.navbar .nav li a:active {
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:active, {
   outline: none;
   background-color: transparent;
 }
-.navbar .nav li.active {
+.navbar-custom .nav li.active {
   outline: none;
 }
-.navbar .nav li.active a {
+.navbar-custom .nav li.active a {
   background-color: rgba(255, 255, 255, 0.3);
 }
-.navbar .nav li.active a:hover {
+.navbar-custom .nav li.active a:hover {
   color: black;
 }
 
-@media (min-width: 768px) {
-  .navbar {
-    padding: 20px 0;
-    border-bottom: none;
-    letter-spacing: 1px;
-    background: transparent;
-    -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-    -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-  }
-  .navbar.top-nav-collapse {
-    padding: 0;
-    background: black;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+.media-body{
+  position: relative;
+}
+
+.media-body a{
+  color: black;
+}
+
+.media-body a:hover{
+  color: firebrick;
+}
+
+.avatar{
+  position: relative;
+  float: left;
+  color: white;
+  width: 250px;
+  height: 330px;
+  background: url(../img/avatar.jpg) no-repeat top center scroll;
+  background-size: 250px 330px;
+}
+
+.avatar h4, h5, h6{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.avatar h4{
+  float: left;
+}
+
+.avatar h5, .media-body h6{
+  position: absolute;
+  bottom: 0;
+  right: 2px;
+}
+
+.avatar h6{
+  top: 0;
+  float: right;
+}
+
+.panel-heading {
+  font-weight: bold;
+  border-bottom: 0px;
+}
+
+.panel-body p{
+  color: black;
+}
+
+.border{
+  border: 7.5px solid;
+  -webkit-border-image: url(../img/border.png) 30 round; /* Safari 3.1-5 */
+  -o-border-image: url(../img/border.png) 30 round; /* Opera 11-12.1 */
+  border-image: url(../img/border.png) 30 round;
+}
+
+.panel-inform {
+  float: left;
+  width: 400px;
+  margin-left: 37.5px;
+}
+
+.parch{
+  background: url(../img/parchment.jpg) no-repeat top center scroll;
+  background-size: 500px 500px;
+}
+
+.clearfix{
+  clear: both;
+}
+
+.media-object{
+  max-width: 65px;
+}
+
+.frame-square {
+  display: inline-block;
+  vertical-align: top;
+  width: 60px;
+  height: 60px;
+}
+  
+.crop img {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  margin: auto;
+  position: absolute;
+  top: -50%;
+  right: -100%;
+  bottom: -100%;
+  left: -100%;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color:grey;;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: firebrick;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
+}
+
+
+
+.panel-custom{
+  color: silver;
+  margin-bottom: 22px;
+  border-radius: 0px;
+  background: #302616;/*radial-gradient(sienna, #342828);*/
+}
+
+.health{
+  color: white;
+}
+
+@media only screen and (max-width : 540px) {
+  .chat-popup {
+    display: none !important;
   }
 }
-@media (max-width: 768px) {
-  .navbar {
-    border-bottom: none;
-    letter-spacing: 1px;
-    background: black;
-    -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-    -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-  }
+            
+.popup-box {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  right: 220px;
+  height: 285px;
+  background: url(../img/parchment.jpg);
+  background-color: rgb(237, 239, 244);
+  width: 300px;
+  border: 5px solid;
+  -webkit-border-image: url(../img/border.png) 30 round; /* Safari 3.1-5 */
+  -o-border-image: url(../img/border.png) 30 round; /* Opera 11-12.1 */
+  border-image: url(../img/border.png) 30 round;
+}
+            
+.popup-box .popup-head {
+  background-color: #6d84b4;
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  clear: both;
+  background: url(../img/wood.jpg);
+}
+            
+.popup-box .popup-head .popup-head-left {
+  float: left;
+}
+            
+.popup-box .popup-head .popup-head-right {
+  float: right;
+  opacity: 0.5;
+}
+            
+.popup-box .popup-head .popup-head-right a {
+  text-decoration: none;
+  color: inherit;
+}
+            
+.popup-box .popup-messages {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: black;
+}
+
+.footer a{
+  text-decoration: none;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+  font-size: 12px;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
 }

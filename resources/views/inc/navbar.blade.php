@@ -1,15 +1,15 @@
-<nav class="navbar navbar-expand-md navbar-fixed-top">
+<nav class="navbar-expand-md navbar-fixed-top navbar-custom">
     <div class="container">
         <div class="navbar-header">
 
             <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                Menu
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" style="font-size: 22px; line-height: 80%;">
+                menu
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+            <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 24px;">
+                {{ config('app.name', 'laravel') }}
             </a>
         </div>
 
@@ -18,16 +18,16 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">Home</a>
+                    <a class="nav-link" href="{{ url('/') }}">home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('about') }}">About</a>
+                    <a class="nav-link" href="{{ url('about') }}">about</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('services') }}">Services</a>
+                    <a class="nav-link" href="{{ url('services') }}">services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('rooms') }}">Rooms</a>
+                    <a class="nav-link" href="{{ url('rooms') }}">rooms</a>
                 </li>
             </ul>
                 
@@ -35,8 +35,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+                    <li><a href="{{ route('login') }}">login</a></li>
+                    <li><a href="{{ route('register') }}">register</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -48,7 +48,7 @@
                                 <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                    Logout
+                                    logout
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

@@ -18,8 +18,6 @@
     <body>
         @include('inc.navbar')
         <div id="app">
-        
-
             @yield('content')
         </div>
 
