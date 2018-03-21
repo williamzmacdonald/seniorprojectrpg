@@ -11,11 +11,27 @@
   src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
 }
 
-.character-image {
-  width: 30%;
-  height: 92%;
-  margin: 10px;
-  border-radius: 5px;
+.img-circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.img-circle img {
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  height: 100%;
+  width: auto;
+  -webkit-transform: translate(-50%,-50%);
+      -ms-transform: translate(-50%,-50%);
+          transform: translate(-50%,-50%);
+}
+
+.img-circle img.portrait {
+  width: 100%;
+  height: auto;
 }
 
 .background {
@@ -27,11 +43,15 @@
   background-color: white;
 }
 
-.intro .brand-heading,
-.intro .intro-text,
+.brand-heading,
+.intro-text,
 .intro .btn,
 .navbar-custom {
   font-family: 'Assassin';
+}
+
+.brand-heading {
+  text-transform: uppercase;
 }
 
 html {
@@ -74,6 +94,7 @@ body{
 
 .intro .brand-heading{
   font-size: 50px;
+  margin-top: 0px;
 }
 
 .intro .intro-text{
@@ -90,21 +111,23 @@ body{
   line-height: 60%;
 }
 
-.intro .btn-primary {
+.btn-primary {
+  color: white;
   border: 1px solid firebrick;
   background-color:firebrick;
 }
 
-.intro .btn-primary:hover {
+.btn-primary:hover {
   background-color: darkred;
 }
 
-.intro .btn-success {
+.btn-success {
+  color: white;
   border: 1px solid green;
   background-color:green;
 }
 
-.intro .btn-success:hover {
+.btn-success:hover {
   background-color: darkgreen;
 }
 
@@ -177,19 +200,6 @@ p{
   color: black;
 }
 
-
-.media-body{
-  position: relative;
-}
-
-.media-body a{
-  color: black;
-}
-
-.media-body a:hover{
-  color: firebrick;
-}
-
 .avatar{
   position: relative;
   float: left;
@@ -209,13 +219,13 @@ p{
   float: left;
 }
 
-.avatar h5, .media-body h6{
+.avatar h5{
   position: absolute;
   bottom: 0;
   right: 2px;
 }
 
-.avatar h6{
+.avatar h6 {
   top: 0;
   float: right;
 }
@@ -238,8 +248,8 @@ p{
 
 .panel-inform {
   float: left;
-  width: 400px;
-  margin-left: 37.5px;
+  width: 375px;
+  margin-left: 50px;
 }
 
 .parch{
@@ -251,75 +261,23 @@ p{
   clear: both;
 }
 
-.media-object{
-  max-width: 65px;
-}
-
 .frame-square {
   display: inline-block;
   vertical-align: top;
-  width: 60px;
-  height: 60px;
+  width: 100%;
+  height: 50%;
 }
   
 .crop img {
   display: block;
-  min-width: 100%;
-  min-height: 100%;
+  min-width: 50%;
+  min-height: 150%;
   margin: auto;
   position: absolute;
   top: -50%;
   right: -100%;
   bottom: -100%;
   left: -100%;
-}
-
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color:grey;;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: black;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: firebrick;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-@media screen and (max-height: 450px) {
-.sidenav {padding-top: 15px;}
-.sidenav a {font-size: 18px;}
-}
-
-
-
-.panel-custom{
-  color: silver;
-  margin-bottom: 22px;
-  border-radius: 0px;
-  background: #302616;/*radial-gradient(sienna, #342828);*/
 }
 
 .health{
@@ -396,4 +354,81 @@ p{
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
+}
+
+.dropdown-menu, 
+.dropdown-menu .divider,
+.dropdown-toggle {
+  background-color: black !important;
+}
+
+.dropdown-menu > li > a {
+  color: white;
+}
+
+.card, .card-info-1,
+.card-info-2, .card-info-3,
+.card-info-4 {
+  float: left;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.card {
+  position: relative;
+}
+
+.card:hover  {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card .container {
+  padding: 2px 16px;
+  width: 100%;
+}
+
+.card img {
+  border-radius: 5px 5px 0 0;
+}
+
+.card a{
+  color: black;
+  text-decoration: none;
+}
+
+.card a:hover {
+  color: firebrick;
+}
+
+.card .panel {
+  margin-left: 15px;
+}
+
+#list ul li:hover, #list ul li:focus {
+  -webkit-transform: scale(1.025);
+  -moz-transform: scale(1.025);
+  -o-transform: scale(1.025);
+  -moz-transition:-moz-transform 15s linear;
+  -o-transition:-o-transform .15s linear;
+  -webkit-transition:-webkit-transform .15s linear;
+  position:relative;
+}
+
+#add_new {
+  color: white;
+  font-size: 20px;
+  line-height: 80%;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+#note a {
+  color: white;
+}
+
+#list ul{
+  list-style: none;
 }
