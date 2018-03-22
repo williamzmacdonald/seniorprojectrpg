@@ -18,9 +18,6 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/') }}">home</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{ url('about') }}">about</a>
                 </li>
                 <li class="nav-item">
@@ -39,7 +36,7 @@
                     <li><a href="{{ route('register') }}">register</a></li>
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="text-transform: lowercase;">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 

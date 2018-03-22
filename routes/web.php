@@ -17,6 +17,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
 Route::get('/login', 'PagesController@login');
+Route::get('/claimed', 'PagesController@claimed');
 Route::get('/rooms', 'RoomsController@index');
 Route::get('/rooms/create', 'RoomsController@create');
 Route::get('/rooms/{room}', 'RoomsController@show');

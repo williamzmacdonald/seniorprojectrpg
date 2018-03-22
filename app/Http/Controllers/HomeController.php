@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.index');
+        $title = 'WELCOME to EVOLVED';
+        return view('pages.index')->with('title', $title);
     }
 }

@@ -4,6 +4,8 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+document.getElementById('cl').onclick = function(){clear()};
+
 // jQuery to collapse the navbar on scroll
 function collapseNavbar() {
     if ($(".navbar-custom").offset().top > 50) {
@@ -128,4 +130,36 @@ function calculate_popups()
 window.addEventListener("resize", calculate_popups);
 window.addEventListener("load", calculate_popups);
 
+function check_web_storage_support() {
+    if(typeof(Storage) !== "undefined") {
+        return(true);
+    }
+    else {
+        alert("Web storage unsupported!");
+        return(false);
+    }
+}
 
+function addnew() {
+    var x = document.getElementById('list');
+    var y = document.getElementById('note');
+    if (x.style.display != "none") {
+        x.style.display = "none";
+        y.style.display = "block";
+    }
+}
+
+function save() {
+    var x = document.getElementById('list');
+    var y = document.getElementById('note');
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.display = "none";
+    }
+}
+
+function clear() {
+    document.getElementById('area').value = "";
+    document.getElementById('title').value = "";
+    
+}
