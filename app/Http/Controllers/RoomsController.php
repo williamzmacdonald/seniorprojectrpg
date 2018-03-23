@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\gameroom;
 use App\userroom;
+use App\note;
+
 //generates random url, used on room creation
 function randomURL($URLlength = 8) {
 	$url = "";
@@ -65,7 +67,8 @@ class RoomsController extends Controller
 			else //if someone exists in the relationship then player is not a gamemaster
 				$room->users()->save($user, ['gamemaster' => true, 'nickname' => $user->name]);
 		}
-		$comments = $pivot->pivot->comments();
-		return view('rooms.show', compact('room', 'comments'));
+		
+		$notes = note::where('gameroom_id', $room->id)->where('user_id', $user->id);
+		return view('rooms.show', compact('room', 'notes'));
 	}
 }

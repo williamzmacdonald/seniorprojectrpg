@@ -14,7 +14,6 @@ class CreateGameroomUserTable extends Migration
     public function up()
     {
         Schema::create('gameroom_user', function (Blueprint $table) {
-			$table->increments('id');
             $table->integer('user_id');
 			$table->integer('gameroom_id');
 			$table->boolean('gamemaster');
