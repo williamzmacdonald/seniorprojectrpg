@@ -7,8 +7,12 @@
 }
 
 @font-face {
-  font-family: "A";
-  src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
+  font-family: 'Glyphicons Halflings';
+  src: url('../fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.eot');
+  src: url('../fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), 
+  url('../fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.woff') format('woff'), 
+  url('../fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.ttf') format('truetype'), 
+  url('../fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
 .img-circle {
@@ -232,7 +236,6 @@ p{
 
 .panel-heading {
   font-weight: bold;
-  border-bottom: 0px;
 }
 
 .panel-body p{
@@ -363,7 +366,13 @@ p{
 }
 
 .dropdown-menu > li > a {
+  background-color: black;
   color: white;
+}
+
+.dropdown-menu > li > a:hover {
+  background-color: black;
+  color: firebrick;
 }
 
 .card, .card-info-1,
@@ -431,4 +440,35 @@ p{
 
 #list ul{
   list-style: none;
+}
+
+.sidenav {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  overflow-x: hidden;
+  transition: 0.5s;
+  margin-top: 20px;
+}
+
+.sidenav a {
+  padding-left: 10px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: firebrick;
+}
+
+@media screen and (max-height: 450px) {
+.sidenav {padding-top: 15px;}
+.sidenav a {font-size: 18px;}
 }

@@ -6,20 +6,21 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="card">
-                    <img src="img/avatar.jpg" alt="Avatar" style="width:100%;">
-                    <div class="container" style="position: relative; padding-bottom: 16px;">
+                    <img src="../img/avatar.jpg" alt="Avatar" style="width:100%;">
+                    <div class="container" style="position: relative; padding-bottom: 32px;">
                         <h4><b>Name of Player</b></h4>
                         <h5 style="position: absolute; top: 16px; right: 16px;">#</h5>
-                        <h5 style="position: absolute; bottom: 8px;">Class</h5>
-                        <h5 style="position: absolute; bottom: 8px; right: 16px;">Health</h5>
+                        <h5 style="position: absolute; bottom: 24px;">Class</h5>
+                        <h5 style="position: absolute; bottom: 24px; right: 16px;">Health</h5>
+                        <h5 style="position: absolute; bottom: 8px;">Status Effects</h5>
                     </div>
                 </div>
             </div>
         
             <div class="col-sm-9">
-                <div class="card" style="height: 447px;">
+                <div class="card" style="height: 462px;">
                     <div class="col-sm-6">
-                        <div class="panel-heading">Specific Info/Status Effects</div>
+                        <div class="panel-heading">Specific Info</div>
                         <div class="panel-body">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                         </div>
@@ -78,7 +79,7 @@
                         <h5 style="position: absolute; top: 45px; right: 16px;">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img src="img/tanis.jpg" alt="John" style="width: 100%; border-radius: 0 0 5px 5px;">
+                    <img src="../img/tanis.jpg" alt="John" style="width: 100%; border-radius: 0 0 5px 5px;">
                 </div>
             </div>
             <div class="col-sm-3">
@@ -92,7 +93,7 @@
                         <h5 style="position: absolute; top: 45px; right: 16px;">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img src="img/tanis.jpg" alt="John" style="width: 100%; border-radius: 0 0 5px 5px;">
+                    <img src="../img/tanis.jpg" alt="John" style="width: 100%; border-radius: 0 0 5px 5px;">
                 </div>
             </div>
             <div class="col-sm-3">
@@ -106,7 +107,7 @@
                         <h5 style="position: absolute; top: 45px; right: 16px;">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img src="img/tanis.jpg" alt="John" style="width: 100%; border-radius: 0 0 5px 5px;">
+                    <img src="../img/tanis.jpg" alt="John" style="width: 100%; border-radius: 0 0 5px 5px;">
                 </div>
             </div>
             <div class="col-sm-3">
@@ -120,7 +121,7 @@
                         <h5 style="position: absolute; top: 45px; right: 16px;">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img src="img/tanis.jpg" alt="John" style="width: 100%; border-radius: 0 0 5px 5px;">
+                    <img src="../img/tanis.jpg" alt="John" style="width: 100%; border-radius: 0 0 5px 5px;">
                 </div>
             </div>
         </div>
