@@ -156,6 +156,35 @@ function save() {
         x.style.display = "block";
         y.style.display = "none";
     }
+	var formData = {
+		title: document.getElementById('title').val(),
+		description: document.getElementById('area').val(),
+	}
+	
+	$.ajax({
+
+            type: "POST",
+            url: "notes",
+            data: formData,
+            dataType: 'json',
+            success: function (data) {
+                console.log(data);
+
+                var note = '<tr id="task' + data.id + '"><td>' + data.id + '</td><td>' + data.task + '</td><td>' + data.description + '</td><td>' + data.created_at + '</td>';
+                note += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
+                note += '<button class="btn btn-danger btn-xs btn-delete delete-task" value="' + data.id + '">Delete</button></td></tr>';
+				$('#list').append(note);
+                
+
+                $('#frmTasks').trigger("reset");
+
+                $('#myModal').modal('hide')
+            },
+            error: function (data) {
+                console.log('Error:', data);
+            }
+        });
+	
 }
 
 function clear() {
