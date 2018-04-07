@@ -69,6 +69,15 @@ class RoomsController extends Controller
 		}
 		
 		$notes = note::where('gameroom_id', $room->id)->where('user_id', $user->id);
-		return view('rooms.show', compact('room', 'notes'));
+		$user_gameroom = $user->gamerooms()->where('gameroom_id', $room->id)->first();
+		if($user_gameroom->gamemaster)
+		{
+			return view('rooms.dm', compact('room', 'notes', 'user'));
+
+		}
+		else
+		{
+			return view('rooms.player', compact('room', 'notes', 'user'));
+		}
 	}
 }

@@ -5,6 +5,7 @@
  */
 
 document.getElementById('cl').onclick = function(){clear()};
+var url = "/seniorproject/public/rooms/notes";
 
 // jQuery to collapse the navbar on scroll
 function collapseNavbar() {
@@ -156,29 +157,29 @@ function save() {
         x.style.display = "block";
         y.style.display = "none";
     }
+	$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+	});
 	var formData = {
-		title: document.getElementById('title').val(),
-		description: document.getElementById('area').val(),
+		title: document.getElementById('title').value,
+		body: document.getElementById('area').value,
+		gameroom_id: gameroom_id,
+		user_id: user_id
 	}
-	
+	console.log('Data:', formData);
 	$.ajax({
 
             type: "POST",
-            url: "notes",
+            url: url,
             data: formData,
             dataType: 'json',
             success: function (data) {
                 console.log(data);
 
-                var note = '<tr id="task' + data.id + '"><td>' + data.id + '</td><td>' + data.task + '</td><td>' + data.description + '</td><td>' + data.created_at + '</td>';
-                note += '<td><button class="btn btn-warning btn-xs btn-detail open-modal" value="' + data.id + '">Edit</button>';
-                note += '<button class="btn btn-danger btn-xs btn-delete delete-task" value="' + data.id + '">Delete</button></td></tr>';
+                var note = "notehtmlgoeshere";
 				$('#list').append(note);
-                
-
-                $('#frmTasks').trigger("reset");
-
-                $('#myModal').modal('hide')
             },
             error: function (data) {
                 console.log('Error:', data);
