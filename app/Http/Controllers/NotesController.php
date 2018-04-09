@@ -24,4 +24,18 @@ class NotesController extends Controller
 		return response()
 		->json($note);
 	}
+	public function update(Request $request, $note_id)
+	{
+		//require title and description
+		$this->validate(request(), [
+			'title' => 'required',
+			'body' => 'required'
+		]);
+		$note = note::find($note_id);
+		$note->title = $request('title');
+		$note->body = $request('body');
+		$note->save();
+		return Response()
+		->json($note);
+	}
 }

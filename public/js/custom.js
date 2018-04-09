@@ -3,11 +3,26 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
-var url = "/seniorproject/public/rooms/notes";
 
 $(document).ready(function(){
-	console.log("loaded!");
+	var url = "/seniorproject/public/rooms/notes";
 	collapseNavbar();
+		
+	$('.deleteNote').click(function(){
+		var note_id = $(this).val();
+		
+		$.ajax({
+			type: "DELETE",
+			url: url + '/' + note_id,
+			success: function(data){
+				console.log(data);
+				$("#note"+note_id).remove();
+			},
+			error: function (data){
+				console.log('Error: ', data);
+			}
+		});
+	});
 	$("#save").click(function(event) {
 		event.preventDefault();
 		var x = document.getElementById('list');
@@ -199,21 +214,6 @@ function addnew() {
 }
 
 
-$(.'deleteNote').click(function(){
-	var note_id = $(this).val();
-	
-	$.ajax({
-		type: "DELETE",
-		url: url + '/' + note_id,
-		success: function(data){
-			console.log(data);
-			$("#note"+note_id).remove();
-		},
-		error: function (data){
-			console.log('Error: ', data);
-		}
-	})
-)}
 
 
 
