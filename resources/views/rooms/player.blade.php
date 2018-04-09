@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <textarea class="form-control" id="area" rows="10" cols="50" placeholder="Description"></textarea>
                             </div>
-                            <button onclick="javascript:save();" type="submit" class="btn btn-success" style="color: white; margin-top: 10px;">Save</button>
+                            <button id="save" type="submit" class="btn btn-success" style="color: white; margin-top: 10px;">Save</button>
 							<button onclick="clear();" type="submit" class="btn btn-primary" id="cl" style="color: white; margin-top: 10px;">Clear</button>                            
                         </div>
                         <div class="panel panel-default" id="list">
