@@ -67,13 +67,13 @@ class RoomsController extends Controller
 			else //if someone exists in the relationship then player is not a gamemaster
 				$room->users()->save($user, ['gamemaster' => true, 'nickname' => $user->name]);
 		}
-		
+		//fetch notes based on gameroom and user
 		$notes = note::where('gameroom_id', $room->id)->where('user_id', $user->id);
+		//fetch pivot
 		$user_gameroom = $user->gamerooms()->where('gameroom_id', $room->id)->first();
 		if($user_gameroom->gamemaster)
 		{
 			return view('rooms.dm', compact('room', 'notes', 'user'));
-
 		}
 		else
 		{

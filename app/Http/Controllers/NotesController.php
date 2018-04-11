@@ -11,7 +11,9 @@ class NotesController extends Controller
 		//require title and description
 		$this->validate(request(), [
 			'title' => 'required',
-			'body' => 'required'
+			'body' => 'required',
+			'user_id' => 'required',
+			'gameroom_id' => 'required'
 		]);
 		//create gameroom and save to table
 		$note = new \App\note;
@@ -35,7 +37,13 @@ class NotesController extends Controller
 		$note->title = $request('title');
 		$note->body = $request('body');
 		$note->save();
-		return Response()
+		return response()
 		->json($note);
+	}
+	public function destroy(Request $request, $note_id)
+	{
+		$note = note::find($note_id);
+		$note->delete();
+		return response();
 	}
 }
