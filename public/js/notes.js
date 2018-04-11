@@ -76,14 +76,27 @@ function clear() {
 	document.getElementById('title').value = ""; 
 }
 
-function addnew() {
+$('#add_new').click(function addnew() {
 	var x = document.getElementById('list');
-	var y = document.getElementById('note');
+    var y = document.getElementById('note');
+    var z = document.getElementById('go_back');
 	if (x.style.display != "none") {
 		x.style.display = "none";
-		y.style.display = "block";
-	}
-}
+        y.style.display = "block";
+        z.style.display = "block";
+    }
+});
+
+$('#go_back').click(function addnew() {
+	var x = document.getElementById('list');
+    var y = document.getElementById('note');
+    var z = document.getElementById('go_back');
+	if (y.style.display != "none") {
+		y.style.display = "none";
+        x.style.display = "block";
+        z.style.display = "none";
+    }
+});
 
 function showNote(id)
 {

@@ -552,6 +552,17 @@ p{
   right: 15px;
 }
 
+#go_back {
+  color: white;
+  font-size: 9px;
+  font-weight: bold;
+  border-radius: 50%;
+  position: absolute;
+  top: 16px;
+  left: 15px;
+  display: none;
+}
+
 #note a {
   color: white;
 }

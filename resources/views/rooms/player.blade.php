@@ -32,9 +32,10 @@
                         </div>
                     </div>
                     <!-- Notes Section -->
-                    <div class="col-sm-3" style="border-left:1px solid black; height:447px; width: 420px;">            
-                        <div class="panel-heading assassin font-22 uppercase">Notes</div>
-                        <a href="javascript:addnew();" role="button" class="btn btn-primary" id="add_new"><span>&#43;</span></a>
+                    <div class="col-sm-3" style="border-left:1px solid black; height:447px; width: 420px;">
+                        <div class="panel-heading assassin font-22 uppercase" style="text-align: center">Notes</div>
+                        <a role="button" class="btn btn-primary" id="add_new"><span>&#43;</span></a>
+                        <a role="button" class="btn btn-primary" id="go_back"><span >&#8592;</span></a>
                         <div id="note" style="display: none;">
                             <div class="form-group">
                                 <input type="text" class="form-control" id="title" name ="title" placeholder="Title"></input>
