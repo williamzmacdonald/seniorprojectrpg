@@ -24,7 +24,7 @@ Route::get('/rooms/{room}', 'RoomsController@show');
 Route::post('/rooms', 'RoomsController@store');
 Route::post('/rooms/notes', 'NotesController@store');
 Route::put('/rooms/notes/{id}', 'NotesController@update');
-Route::delete('rooms/notes/{id}', 'NotesController@destroy);
+Route::delete('rooms/notes/{id}', 'NotesController@destroy');
 
 Auth::routes();
 

@@ -68,7 +68,7 @@ class RoomsController extends Controller
 				$room->users()->save($user, ['gamemaster' => true, 'nickname' => $user->name]);
 		}
 		//fetch notes based on gameroom and user
-		$notes = note::where('gameroom_id', $room->id)->where('user_id', $user->id);
+		$notes = note::where('gameroom_id', $room->id)->where('user_id', $user->id)->get();
 		//fetch pivot
 		$user_gameroom = $user->gamerooms()->where('gameroom_id', $room->id)->first();
 		if($user_gameroom->gamemaster)

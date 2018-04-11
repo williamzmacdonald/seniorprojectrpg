@@ -268,3 +268,23 @@ function appendNotes()
 	$("#notes").clone().appendTo("#appendArea");
 	document.getElementById("notes").style.display = "inline";
 }
+
+function showNote(id)
+{
+	var y = document.getElementById("body"+id);
+	if (y.style.display === "none") {
+		y.style.display = "inline";
+	}
+	else if(y.style.display === "inline"){
+		y.style.display = "none";
+	}
+
+	var i = 0;
+	for(i; i < note.length; i++)
+	{
+		if(i !== id)
+		{
+			document.getElementById("body"+i).style.display = "none";
+		}
+	}
+}

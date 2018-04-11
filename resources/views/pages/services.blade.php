@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8">
-                <h1 class="brand-heading" style="text-transform: uppercase; color: black;">{{$title}}</h1>
-                <p class="intro-text" style="text-transform: uppercase; color: black;">
+                <h1 class="brand-heading font-black uppercase">{{$title}}</h1>
+                <p class="intro-text font-black uppercase">
                     Evolved digitilizes pen-and-paper RPGs for easier management of characters and gameplay.
                     No matter which RPG you choose to play, Evolved helps users keep track of all the
                     characters they've created, their information, background, status, and the adventures
@@ -15,7 +15,7 @@
                 </p>
             </div>
             <div class="col-sm-4">
-                <h2 class="brand-heading" style="text-transform: uppercase; color: black;">Contact Us:</h2>
+                <h2 class="brand-heading font-black uppercase">Contact Us:</h2>
                 <address>
                     <strong>Evolved</strong>
                     <br>3481 Melrose Place
@@ -36,8 +36,8 @@
 
         <div class="row" style="margin-top: 50px; margin-bottom: 50px;">
             <div class="col-sm-7">
-                <h3 class="brand-heading" style="text-transform: uppercase; color: black; margin-top: 40px;">Game Rooms</h3>
-                <p style="color: black;">
+                <h3 class="brand-heading font-black uppercase" style="margin-top: 40px;">Game Rooms</h3>
+                <p class="font-black">
                     There are two different game rooms: one for the average player and the other for the dungeon master.
                     Game rooms are specific to the adventure the user is going on. It shows the character avatar, health,
                     initiative, specfic information pertaining to that character, notes they can and may have taken, and
@@ -58,8 +58,8 @@
                 <img class="featurette-image img-responsive" src="img/gameroom.jpg" alt="Generic placeholder image" style="border-radius: 5px;">
             </div>
             <div class="col-sm-7">
-                <h3 class="brand-heading" style="text-transform: uppercase; color: black; margin-top: 60px;">Characters</h3>
-                <p style="color: black;">
+                <h3 class="brand-heading font-black uppercase" style="margin-top: 60px;">Characters</h3>
+                <p class="font-black">
                     Evolved allows the users to create their own characters but also gives them the option to use
                     characters that have alrady been made for them. They can be easily claimed and added into a user's
                     character list. When joining a game room, the user can click and choose which character they want to
@@ -72,8 +72,8 @@
 
         <div class="row" style="margin-top: 50px; margin-bottom: 50px;">
             <div class="col-sm-7">
-                <h3 class="brand-heading" style="text-transform: uppercase; color: black; margin-top: 60px;">Interaction</h3>
-                <p style="color: black;">
+                <h3 class="brand-heading font-black uppercase" style="margin-top: 60px;">Interaction</h3>
+                <p class="font-black">
                     User interaction is included by messaging within the game room. Without getting out of character, the
                     messaging allows the users to converse amongst each other and discuss different aspects of the game.
                     They can send each other notes and specific information about the character that other players cannot

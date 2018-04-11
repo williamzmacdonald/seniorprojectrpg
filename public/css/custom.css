@@ -15,6 +15,124 @@
   url('../fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
+.absolute {
+  position: absolute;
+}
+
+.assassin {
+  font-family: 'Assassin';
+}
+
+.bottom-right {
+  top: 45px;
+  right: 16px;
+}
+
+.claim {
+  font-family: 'Assassin';
+  font-size: 24px;
+  color: black;
+  text-transform: lowercase;
+  line-height: 80%;
+}
+
+#combat {
+  background: none;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.fighter {
+  height: 50px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.fighter span {
+  position: absolute;
+  top: 18px;
+}
+
+.fighter h5 {
+  position: absolute;
+  top: 18px;
+  left: 40px;
+}
+
+.fighter .health {
+  position: absolute;
+  top: 18px;
+  right: 100px;
+}
+
+.fighter .initiative {
+  position: absolute;
+  top: 18px;
+  right: 25px;
+}
+
+.font-20 {
+  font-size: 20px;
+}
+
+.font-22 {
+  font-size: 22px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.font-30 {
+  font-size: 24px;
+}
+
+.font-black {
+  color: black;
+}
+
+.font-white {
+  color: white;
+}
+
+.health{
+  color: white;
+}
+
+.left{
+  float: left;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.menu {
+  font-size: 22px;
+  line-height: 80%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
+
+.top-right {
+  top: 16px;
+  right: 16px
+}
+
+.uppercase
+{
+  text-transform: uppercase;
+}
+
 .img-circle {
   position: relative;
   width: 200px;
