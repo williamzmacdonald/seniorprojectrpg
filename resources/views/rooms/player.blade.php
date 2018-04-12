@@ -46,9 +46,9 @@
                             <button id="save" type="submit" class="btn btn-success font-white" style="margin-top: 10px;">Save</button>
                             <button onclick="clear();" type="submit" class="btn btn-primary font-white" id="cl" style="margin-top: 10px;">Clear</button>                            
                         </div>
-                        <div style="height: 400px; width: 400px; overflow: auto;">           
+                        <div style="height: 400px; width: 390px; overflow: auto;">           
                             @if ($notes->count() >= 1)
-                                <div class="panel panel-default" id="notep">
+                                <div class="panel panel-default" id="notep" style="width: 350px;">
                                     <ul style="padding-left: 0;" id="list">
                                         @foreach ($notes as $note)
                                             @if($note->id == 1)
@@ -59,7 +59,7 @@
                                                     </div>
                                                 </li>
                                             @else
-                                                <li style="margin-left: 10px; border-top: 1px solid gainsboro; width: 350px;">
+                                                <li style="margin-left: 10px; border-top: 1px solid gainsboro; width: 325px;">
                                                     <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
                                                         <h4>{{ $note->title }}</h4>
                                                         <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>

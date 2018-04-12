@@ -71,7 +71,7 @@ $(document).ready(function(){
 									"</li>";
 				}
 				else{
-					var note = 	"<li style='margin-left: 10px;  border-top: 1px solid gainsboro; width: 350px;'>"+
+					var note = 	"<li style='margin-left: 10px;  border-top: 1px solid gainsboro; width: 325px;'>"+
 									"<div onclick='javascript:showNote("+data['id']+");' class='pointer' id='{{$note->id}}'>"+
 										"<h4>"+data['title']+"</h4>"+
 										"<p class='font-black' id='body"+data['id']+"' style='display: none;'>"+data['body']+"</p>"+
