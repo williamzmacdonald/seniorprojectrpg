@@ -132,7 +132,7 @@
                         <h5 class="absolute bottom-right">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img style="width: 200px; border-radius: 0 0 5px 5px;" src="../img/tanis.jpg" alt="John">
+                    <div class="square" style="border-radius: 0 0 5px 5px;"></div>
                 </div>
                 <div class="card" style="margin-right: 15px; display: inline-block;">
                     <div class="container" style="position: relative; padding-bottom: 16px;">
@@ -144,7 +144,7 @@
                         <h5 class="absolute bottom-right">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img style="width: 200px; border-radius: 0 0 5px 5px;" src="../img/tanis.jpg" alt="John">
+                    <div class="square" style="border-radius: 0 0 5px 5px;"></div>
                 </div>
                 <div class="card" style="margin-right: 15px; display: inline-block;">
                     <div class="container" style="position: relative; padding-bottom: 16px;">
@@ -156,7 +156,7 @@
                         <h5 class="absolute bottom-right"></h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img style="width: 200px; border-radius: 0 0 5px 5px;" src="../img/tanis.jpg" alt="John">
+                    <div class="square" style="border-radius: 0 0 5px 5px;"></div>
                 </div>
                 <div class="card" style="margin-right: 15px; display: inline-block;">
                     <div class="container" style="position: relative; padding-bottom: 16px;">
@@ -168,7 +168,7 @@
                         <h5 class="absolute bottom-right">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img style="width: 200px; border-radius: 0 0 5px 5px;" src="../img/tanis.jpg" alt="John">
+                    <div class="square" style="border-radius: 0 0 5px 5px;"></div>
                 </div>
             </div>
         </div>

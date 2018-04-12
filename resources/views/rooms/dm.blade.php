@@ -12,48 +12,90 @@
     <div class="container">
         <span class="glyphicon glyphicon-plus font-24 pointer" aria-hidden="true" onclick="openNav()" style="margin-bottom: 10px;"></span>
     </div>
-    <div class="container relative" id="appendArea" style="height: 600px; margin: auto;" ondrop="drop(event, this)" ondragover="allowDrop(event)">
+    <div class="container relative" id="appendArea" style="height: 1000px; margin: auto;" ondrop="drop(event, this)" ondragover="allowDrop(event)">
         <a href="javascript:addCombatant();" role="button" class="btn btn-success absolute" style="font-size: 16px; line-height: 95%; border-radius: 50%; top: 0; right: 0;"><span>+</span></a>
         <a href="javascript:deleteCombatant();" role="button" class="btn btn-primary absolute" style="font-size: 22px; line-height: 80%; border-radius: 50%; top: 35px; right: 0;"><span>-</span></a>
         
-        <div class="row" style="margin: 0 auto; width: 80%;">
-            <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
-                <h3>Combat</h3>
+        <div class="row relative">
+            <div class="absolute pull-left" style="width: 500px; margin-left: 40px;">
+                <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
+                    <h3>Combat</h3>
+                </div>
+                <div id="list">
+                    <!-- List group -->
+                    <ul id="combat" class="list-group">
+                        <li class="list-group-item fighter">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                        <li class="list-group-item fighter">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                        <li class="list-group-item fighter">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>    
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                        <li class="list-group-item fighter">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                        <li class="list-group-item fighter" style="border-bottom: none;">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div style="margin: 0 auto; width: 70%;" id="list">
-                <!-- List group -->
-                <ul id="combat" class="list-group">
-                    <li class="list-group-item fighter">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
-                    <li class="list-group-item fighter">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
-                    <li class="list-group-item fighter">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>    
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
-                    <li class="list-group-item fighter">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
-                    <li class="list-group-item fighter" style="border-bottom: none;">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
-                </ul>
+            <div class="aboslute pull-right" style="width: 500px; margin-right: 40px;">
+                <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
+                    <h3>Combat List</h3>
+                </div>
+                <div id="list">
+                    <!-- List group -->
+                    <ul id="combat" class="list-group">
+                        <li class="list-group-item fighter">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                        <li class="list-group-item fighter">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                        <li class="list-group-item fighter">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>    
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                        <li class="list-group-item fighter">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                        <li class="list-group-item fighter" style="border-bottom: none;">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <h5>Name of Player</h5>
+                            <h6 class="health">Health</h6>
+                            <h6 class="initiative">Initiative</h6>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -72,7 +114,7 @@
                         <h5 class="absolute bottom-right">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img style="width: 200px; border-radius: 0 0 5px 5px;" src="../img/tanis.jpg" alt="John">
+                    <div class="square" style="border-radius: 0 0 5px 5px;"></div>
                 </div>
                 <div class="card" style="margin-right: 15px; display: inline-block;">
                     <div class="container" style="position: relative; padding-bottom: 16px;">
@@ -84,7 +126,7 @@
                         <h5 class="absolute bottom-right">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img style="width: 200px; border-radius: 0 0 5px 5px;" src="../img/tanis.jpg" alt="John">
+                    <div class="square" style="border-radius: 0 0 5px 5px;"></div>
                 </div>
                 <div class="card" style="margin-right: 15px; display: inline-block;">
                     <div class="container" style="position: relative; padding-bottom: 16px;">
@@ -96,7 +138,7 @@
                         <h5 class="absolute bottom-right"></h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img style="width: 200px; border-radius: 0 0 5px 5px;" src="../img/tanis.jpg" alt="John">
+                    <div class="square" style="border-radius: 0 0 5px 5px;"></div>
                 </div>
                 <div class="card" style="margin-right: 15px; display: inline-block;">
                     <div class="container" style="position: relative; padding-bottom: 16px;">
@@ -108,11 +150,11 @@
                         <h5 class="absolute bottom-right">Health</h5>
                         <h5><br>Info</h5>
                     </div>
-                    <img style="width: 200px; border-radius: 0 0 5px 5px;" src="../img/tanis.jpg" alt="John">
+                    <div class="square" style="border-radius: 0 0 5px 5px;"></div>
                 </div>
             </div>
         </div>
-        <h3 class="font-30 font-black assassin uppercase" id="add" style="text-align: center;">Add Content Here</h3>
+        <h3 class="font-30 font-black assassin uppercase" id="add" style="text-align: center; margin-top: 150px;">Add Content Here</h3>
     </div>
 </div>
 

@@ -63,6 +63,7 @@
 }
 
 .fighter .health {
+  color: black;
   position: absolute;
   top: 18px;
   right: 100px;
@@ -387,6 +388,12 @@ p{
   vertical-align: top;
   width: 100%;
   height: 50%;
+}
+
+.square {
+  background: url(../img/tanis.jpg) 60% 15% no-repeat; 
+  width: 200px; 
+  height: 200px; 
 }
   
 .crop img {

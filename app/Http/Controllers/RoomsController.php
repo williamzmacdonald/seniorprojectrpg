@@ -77,7 +77,7 @@ class RoomsController extends Controller
 		}
 		else
 		{
-			return view('rooms.player', compact('room', 'notes', 'user'));
+			return view('rooms.dm', compact('room', 'notes', 'user'));
 		}
 	}
 }
