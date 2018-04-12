@@ -5,7 +5,7 @@
  */
 
 $(document).ready(function(){
-	var url = "/seniorproject/public/rooms/notes";
+	var url = "/seniorprojectrpg/public/rooms/notes";
 	collapseNavbar();
 		
 	$('.deleteNote').click(function(){
@@ -27,9 +27,11 @@ $(document).ready(function(){
 		event.preventDefault();
 		var x = document.getElementById('list');
 		var y = document.getElementById('note');
+		var z = document.getElementById('go_back');
 		if (x.style.display === "none") {
 			x.style.display = "block";
 			y.style.display = "none";
+			z.style.display = "none";
 		}
 		$.ajaxSetup({
 		headers: {
@@ -60,7 +62,23 @@ $(document).ready(function(){
 			success: function (data) {
 				console.log(data);
 
-				var note = "notehtmlgoeshere";
+				if(data['id'] === 1){
+					var note = 	"<li style='margin-left: 10px; border: none;'>"+
+									"<div onclick='javascript:showNote("+data['id']+");' class='pointer' id='{{$note->id}}'>"+
+										"<h4>"+data['title']+"</h4>"+
+										"<p class='font-black' id='body"+data['id']+"' style='display: none;'>"+data['body']+"</p>"+
+									"</div>"+
+									"</li>";
+				}
+				else{
+					var note = 	"<li style='margin-left: 10px;  border-top: 1px solid gainsboro; width: 350px;'>"+
+									"<div onclick='javascript:showNote("+data['id']+");' class='pointer' id='{{$note->id}}'>"+
+										"<h4>"+data['title']+"</h4>"+
+										"<p class='font-black' id='body"+data['id']+"' style='display: none;'>"+data['body']+"</p>"+
+									"</div>"+
+								"</li>";
+				}
+				notes += ","+data;
 				$('#list').append(note);
 			},
 			error: function (data) {
@@ -70,11 +88,10 @@ $(document).ready(function(){
 	});
 });
 
-document.getElementById('cl').onclick = function(){clear()};
-function clear() {
+$('#cl').click(function clear() {
 	document.getElementById('area').value = "";
 	document.getElementById('title').value = ""; 
-}
+});
 
 $('#add_new').click(function addnew() {
 	var x = document.getElementById('list');
@@ -108,8 +125,8 @@ function showNote(id)
 		y.style.display = "none";
 	}
 
-	var i = 0;
-	for(i; i < note.length; i++)
+	var i = 1;
+	for(i; i <= notes.length; i++)
 	{
 		if(i !== id)
 		{

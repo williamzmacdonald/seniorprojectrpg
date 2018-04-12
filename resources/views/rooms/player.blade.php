@@ -5,7 +5,7 @@
 <script>
 	var gameroom_id = {!! json_encode($room->id) !!};
     var user_id = {!! json_encode($user->id) !!};
-    var note = {!! json_encode($notes) !!};
+    var notes = {!! json_encode($notes) !!};
 </script>
 
 <div class="pages background">
@@ -43,32 +43,34 @@
                             <div class="form-group">
                                 <textarea class="form-control" id="area" rows="10" cols="50" placeholder="Description"></textarea>
                             </div>
-                            <button onclick="javascript:save();" type="submit" class="btn btn-success font-white" style="margin-top: 10px;">Save</button>
+                            <button id="save" type="submit" class="btn btn-success font-white" style="margin-top: 10px;">Save</button>
                             <button onclick="clear();" type="submit" class="btn btn-primary font-white" id="cl" style="margin-top: 10px;">Clear</button>                            
-                        </div>           
-                        @if ($notes->count() >= 1)
-                            <div class="panel panel-default" id="list">
-                                <ul style="padding-left: 0;">
-                                    @foreach ($notes as $note)
-                                        @if($note->id == 0)
-                                            <li style="margin-left: 10px; border: none;">
-                                                <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
-                                                    <h4>{{ $note->title }}</h4>
-                                                    <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
-                                                </div>
-                                            </li>
-                                        @else
-                                            <li style="margin-left: 10px; border-top: 1px solid gainsboro; width: 350px;">
-                                                <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
-                                                    <h4>{{ $note->title }}</h4>
-                                                    <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
-                                                </div>
-                                            </li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
+                        </div>
+                        <div style="height: 400px; width: 400px; overflow: auto;">           
+                            @if ($notes->count() >= 1)
+                                <div class="panel panel-default" id="notep">
+                                    <ul style="padding-left: 0;" id="list">
+                                        @foreach ($notes as $note)
+                                            @if($note->id == 1)
+                                                <li style="margin-left: 10px; border: none;">
+                                                    <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
+                                                        <h4>{{ $note->title }}</h4>
+                                                        <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
+                                                    </div>
+                                                </li>
+                                            @else
+                                                <li style="margin-left: 10px; border-top: 1px solid gainsboro; width: 350px;">
+                                                    <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
+                                                        <h4>{{ $note->title }}</h4>
+                                                        <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
+                                                    </div>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
