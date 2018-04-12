@@ -46,7 +46,7 @@
                             <button id="save" type="submit" class="btn btn-success font-white" style="margin-top: 10px;">Save</button>
                             <button onclick="clear();" type="submit" class="btn btn-primary font-white" id="cl" style="margin-top: 10px;">Clear</button>                            
                         </div>
-                        <div style="height: 400px; width: 390px; overflow: auto;">           
+                        <div style="height: 390px; width: 390px; overflow: auto;">           
                             @if ($notes->count() >= 1)
                                 <div class="panel panel-default" id="notep" style="width: 350px;">
                                     <ul style="padding-left: 0;" id="list">
