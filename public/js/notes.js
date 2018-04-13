@@ -23,6 +23,15 @@ $(document).ready(function(){
 			success: function(data){
 				console.log(data);
 				$("#note-"+note_id).remove();
+				var noteindex;
+				$.each(notes, function(i, note){
+					if(note.id == data.id)
+					{
+						noteindex = i;
+					}
+				});
+				
+				notes.splice(noteindex,1);
 			},
 			error: function (data){
 				console.log('Error: ', data);
@@ -68,9 +77,10 @@ $(document).ready(function(){
 			success: function (data) {
 				console.log(data);
 
-				if(data['id'] === 1){
+				if(notes.length == 0){
 					var note = 	"<li id='note-"+data['id']+"' style='margin-left: 10px; border: none;'>"+
 									"<div onclick='javascript:showNote("+data['id']+");' class='pointer' id='{{$note->id}}'>"+
+										"<button type = 'submit' class='btn btn-danger btn-delete btn-xs delete-note' value='"+data['id']+"' style='float: right'>X</button>"
 										"<h4>"+data['title']+"</h4>"+
 										"<p class='font-black' id='body"+data['id']+"' style='display: none;'>"+data['body']+"</p>"+
 									"</div>"+
@@ -82,6 +92,7 @@ $(document).ready(function(){
 				else{
 					var note = 	"<li style='margin-left: 10px;  border-top: 1px solid gainsboro; width: 325px;'>"+
 									"<div onclick='javascript:showNote("+data['id']+");' class='pointer' id='{{$note->id}}'>"+
+										"<button type = 'submit' class='btn btn-danger btn-delete btn-xs delete-note' value='"+data['id']+"' style='float: right'>X</button>"
 										"<h4>"+data['title']+"</h4>"+
 										"<p class='font-black' id='body"+data['id']+"' style='display: none;'>"+data['body']+"</p>"+
 									"</div>"+
@@ -137,6 +148,7 @@ function showNote(id)
 	$.each(notes, function(i, note){
 		if(note.id !== id)
 		{
+			console.log(note.id);
 			document.getElementById("body"+note.id).style.display = "none";
 		}
 	});
