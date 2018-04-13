@@ -82,7 +82,8 @@ $(document).ready(function(){
 									"</div>"+
 								"</li>";
 				}
-				notes += ","+data;
+				notes[notes.length] = data;
+				console.log(notes);
 				$('#list').append(note);
 			},
 			error: function (data) {
@@ -128,7 +129,6 @@ function showNote(id)
 	else if(y.style.display === "inline"){
 		y.style.display = "none";
 	}
-
 	$.each(notes, function(i, note){
 		if(note.id !== id)
 		{
