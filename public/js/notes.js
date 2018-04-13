@@ -6,6 +6,7 @@
 
 $(document).ready(function(){
 	var url = "/seniorprojectrpg/public/rooms/notes";
+	
 	collapseNavbar();
 		
 	$('.deleteNote').click(function(){
@@ -128,14 +129,12 @@ function showNote(id)
 		y.style.display = "none";
 	}
 
-	var i = 1;
-	for(i; i <= notes.length; i++)
-	{
-		if(i !== id)
+	$.each(notes, function(i, note){
+		if(note.id !== id)
 		{
-			document.getElementById("body"+i).style.display = "none";
+			document.getElementById("body"+note.id).style.display = "none";
 		}
-	}
+	});
 }
 
 // jQuery to collapse the navbar on scroll

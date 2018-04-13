@@ -5,7 +5,7 @@
  */
 
 $(document).ready(function(){
-	var url = "/seniorproject/public/rooms/notes";
+	var url = "/seniorprojectrpg/public/rooms/notes";
 	collapseNavbar();
 		
 	$('.deleteNote').click(function(){

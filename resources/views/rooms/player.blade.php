@@ -1,12 +1,12 @@
 @extends('layouts.app')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-
-@section('content')
 <script>
 	var gameroom_id = {!! json_encode($room->id) !!};
     var user_id = {!! json_encode($user->id) !!};
     var notes = {!! json_encode($notes) !!};
 </script>
+@section('content')
+	
 
 <div class="pages background">
     <div class="container">
@@ -47,8 +47,8 @@
                             <button onclick="clear();" type="submit" class="btn btn-primary font-white" id="cl" style="margin-top: 10px;">Clear</button>                            
                         </div>
                         <div id="noteList" style="height: 390px; width: 390px; overflow: auto;">           
-                                <div class="panel panel-default" id="notep" style="display: none; width: 350px;">
-                                    <ul id="list" style="display: none; padding-left: 0;" >
+                                <div class="panel panel-default" id="notep" style="width: 350px;">
+                                    <ul id="list" style="padding-left: 0;" >
                                         @if ($notes->count() >= 1)
                                         @foreach ($notes as $note)
                                             @if($note->id == 1)

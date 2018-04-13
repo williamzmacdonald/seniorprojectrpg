@@ -71,7 +71,6 @@ class RoomsController extends Controller
 		//fetch notes based on gameroom and user
 		$notes = note::where('gameroom_id', $room->id)->where('user_id', $user->id)->get();
 		//fetch pivot
-		
 		if($usergameroom->pivot->gamemaster == 1)
 		{
 			return view('rooms.dm', compact('room', 'notes', 'user'));
