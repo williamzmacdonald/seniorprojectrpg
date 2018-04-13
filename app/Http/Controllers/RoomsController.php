@@ -58,26 +58,27 @@ class RoomsController extends Controller
 		$user = \Auth::user();
 		$room = gameroom::where('joinlink', $joinlink)->first();
 		//check if a relation between the user and gameroom already exists
-		$pivot = $user->gamerooms()->where('gameroom_id', $room->id)->exists();
+		$usergameroom = $user->gamerooms()->where('gameroom_id', $room->id)->first();
 		//if not we create the relation
-		if(!$pivot)
+		if($usergameroom == null)
 		{	//check if any users exist in the room, if not then the first user is the gamemaster
 			if($room->users()->exists())
 				$room->users()->save($user, ['gamemaster' => false, 'nickname' => $user->name]);
 			else //if someone exists in the relationship then player is not a gamemaster
 				$room->users()->save($user, ['gamemaster' => true, 'nickname' => $user->name]);
+			$usergameroom = $user->gamerooms()->where('gameroom_id', $room->id)->first();
 		}
 		//fetch notes based on gameroom and user
 		$notes = note::where('gameroom_id', $room->id)->where('user_id', $user->id)->get();
 		//fetch pivot
-		$user_gameroom = $user->gamerooms()->where('gameroom_id', $room->id)->first();
-		if($user_gameroom->gamemaster)
+		
+		if($usergameroom->pivot->gamemaster == 1)
 		{
 			return view('rooms.dm', compact('room', 'notes', 'user'));
 		}
 		else
 		{
-			return view('rooms.dm', compact('room', 'notes', 'user'));
+			return view('rooms.player', compact('room', 'notes', 'user'));
 		}
 	}
 }

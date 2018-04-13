@@ -11,7 +11,7 @@ class User extends Authenticatable
 
     public function gamerooms()
 	{
-		return $this->belongsToMany('App\gameroom')->withTimestamps();
+		return $this->belongsToMany('App\gameroom')->withTimestamps()->withPivot('gamemaster');
 	}
     protected $fillable = [
         'name', 'email', 'password',
