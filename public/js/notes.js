@@ -8,16 +8,21 @@ $(document).ready(function(){
 	var url = "/seniorprojectrpg/public/rooms/notes";
 	
 	collapseNavbar();
-		
-	$('.deleteNote').click(function(){
+	
+	$('.delete-note').click(function(){
+		$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+		});
 		var note_id = $(this).val();
-		
+		console.log("clicked");
 		$.ajax({
 			type: "DELETE",
 			url: url + '/' + note_id,
 			success: function(data){
 				console.log(data);
-				$("#note"+note_id).remove();
+				$("#note-"+note_id).remove();
 			},
 			error: function (data){
 				console.log('Error: ', data);
@@ -64,7 +69,7 @@ $(document).ready(function(){
 				console.log(data);
 
 				if(data['id'] === 1){
-					var note = 	"<li style='margin-left: 10px; border: none;'>"+
+					var note = 	"<li id='note-"+data['id']+"' style='margin-left: 10px; border: none;'>"+
 									"<div onclick='javascript:showNote("+data['id']+");' class='pointer' id='{{$note->id}}'>"+
 										"<h4>"+data['title']+"</h4>"+
 										"<p class='font-black' id='body"+data['id']+"' style='display: none;'>"+data['body']+"</p>"+

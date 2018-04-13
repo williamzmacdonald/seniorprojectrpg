@@ -54,14 +54,15 @@
                                             @if($note->id == 1)
                                                 <li style="margin-left: 10px; border: none;">
                                                     <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
-                                                        <h4>{{ $note->title }}</h4>
+                                                        <h4>{{ $note->title }}</h4> 
                                                         <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
                                                     </div>
                                                 </li>
                                             @else
-                                                <li style="margin-left: 10px; border-top: 1px solid gainsboro; width: 325px;">
+                                                <li id="note-{{$note->id}}" style="margin-left: 10px; border-top: 1px solid gainsboro; width: 325px;">
                                                     <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
-                                                        <h4>{{ $note->title }}</h4>
+														<button type = "submit" class="btn btn-danger btn-delete btn-xs delete-note" value="{{$note->id}}" style="float: right">X</button>
+                                                        <h4>{{ $note->title }}</h4> 
                                                         <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
                                                     </div>
                                                 </li>

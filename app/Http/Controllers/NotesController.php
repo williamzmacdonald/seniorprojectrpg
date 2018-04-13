@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\note;
 class NotesController extends Controller
 {
     public function store(Request $request)
@@ -40,10 +40,11 @@ class NotesController extends Controller
 		return response()
 		->json($note);
 	}
-	public function destroy(Request $request, $note_id)
+	public function destroy($note_id)
 	{
 		$note = note::find($note_id);
 		$note->delete();
-		return response();
+		return response()
+		->json($note);
 	}
 }
