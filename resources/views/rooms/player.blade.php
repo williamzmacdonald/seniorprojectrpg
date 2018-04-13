@@ -46,10 +46,10 @@
                             <button id="save" type="submit" class="btn btn-success font-white" style="margin-top: 10px;">Save</button>
                             <button onclick="clear();" type="submit" class="btn btn-primary font-white" id="cl" style="margin-top: 10px;">Clear</button>                            
                         </div>
-                        <div style="height: 390px; width: 390px; overflow: auto;">           
-                            @if ($notes->count() >= 1)
-                                <div class="panel panel-default" id="notep" style="width: 350px;">
-                                    <ul style="padding-left: 0;" id="list">
+                        <div id="noteList" style="height: 390px; width: 390px; overflow: auto;">           
+                                <div class="panel panel-default" id="notep" style="display: none; width: 350px;">
+                                    <ul id="list" style="display: none; padding-left: 0;" >
+                                        @if ($notes->count() >= 1)
                                         @foreach ($notes as $note)
                                             @if($note->id == 1)
                                                 <li style="margin-left: 10px; border: none;">
@@ -67,9 +67,9 @@
                                                 </li>
                                             @endif
                                         @endforeach
+                                        @endif
                                     </ul>
                                 </div>
-                            @endif
                         </div>
                     </div>
                 </div>

@@ -25,7 +25,7 @@ $(document).ready(function(){
 	});
 	$("#save").click(function(event) {
 		event.preventDefault();
-		var x = document.getElementById('list');
+		var x = document.getElementById('noteList');
 		var y = document.getElementById('note');
 		var z = document.getElementById('go_back');
 		if (x.style.display === "none") {
@@ -69,6 +69,9 @@ $(document).ready(function(){
 										"<p class='font-black' id='body"+data['id']+"' style='display: none;'>"+data['body']+"</p>"+
 									"</div>"+
 									"</li>";
+
+					document.getElementById('notep').style.display = "block";
+					document.getElementById('list').style.display = "block";
 				}
 				else{
 					var note = 	"<li style='margin-left: 10px;  border-top: 1px solid gainsboro; width: 325px;'>"+
@@ -94,7 +97,7 @@ $('#cl').click(function clear() {
 });
 
 $('#add_new').click(function addnew() {
-	var x = document.getElementById('list');
+	var x = document.getElementById('noteList');
     var y = document.getElementById('note');
     var z = document.getElementById('go_back');
 	if (x.style.display != "none") {
@@ -105,7 +108,7 @@ $('#add_new').click(function addnew() {
 });
 
 $('#go_back').click(function addnew() {
-	var x = document.getElementById('list');
+	var x = document.getElementById('noteList');
     var y = document.getElementById('note');
     var z = document.getElementById('go_back');
 	if (y.style.display != "none") {
