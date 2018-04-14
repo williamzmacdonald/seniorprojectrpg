@@ -47,14 +47,15 @@
                             <button onclick="clear();" type="submit" class="btn btn-primary font-white" id="cl" style="margin-top: 10px;">Clear</button>                            
                         </div>
                         <div id="noteList" style="height: 390px; width: 390px; overflow: auto;">           
-                                <div class="panel panel-default" id="notep" style="width: 350px;">
+                                <div class="panel panel-default" id="notep" style="width: 350px; ">
                                     <ul id="list" style="padding-left: 0;" >
                                         @if ($notes->count() >= 1)
-                                        @foreach ($notes as $note)
-                                            @if($note->id == 1)
-                                                <li style="margin-left: 10px; border: none;">
+                                        @foreach ($notes as $key=>$note)
+                                            @if($key == 0)
+                                                <li id="note-{{$note->id}}" style="margin-left: 10px; width: 325px; border: none;">
                                                     <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
-                                                        <h4>{{ $note->title }}</h4> 
+ 														<button type = "submit" class="btn btn-danger btn-delete btn-xs delete-note" value="{{$note->id}}" style="float: right">X</button>
+														<h4>{{ $note->title }}</h4> 
                                                         <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
                                                     </div>
                                                 </li>
