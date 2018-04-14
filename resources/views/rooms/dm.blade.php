@@ -13,9 +13,6 @@
         <span class="glyphicon glyphicon-plus font-24 pointer" aria-hidden="true" onclick="openNav()" style="margin-bottom: 10px;"></span>
     </div>
     <div class="container relative" id="appendArea" style="height: 1000px; margin: auto;" ondrop="drop(event, this)" ondragover="allowDrop(event)">
-        <a href="javascript:addCombatant();" role="button" class="btn btn-success absolute" style="font-size: 16px; line-height: 95%; border-radius: 50%; top: 0; right: 0;"><span>+</span></a>
-        <a href="javascript:deleteCombatant();" role="button" class="btn btn-primary absolute" style="font-size: 22px; line-height: 80%; border-radius: 50%; top: 35px; right: 0;"><span>-</span></a>
-        
         <div class="row relative">
             <div class="absolute pull-left" style="width: 500px; margin-left: 40px;">
                 <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
@@ -57,40 +54,46 @@
                     </ul>
                 </div>
             </div>
-            <div class="aboslute pull-right" style="width: 500px; margin-right: 40px;">
-                <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
+            <div id="combat_list" class="aboslute pull-right" style="width: 500px; margin-right: 40px;">
+                <div class="assassin uppercase relative" style="text-align: center; background: none; border-bottom: none;">
                     <h3>Combat List</h3>
+                    <a role="button" class="btn btn-default absolute" id="edit_combat" style="top: 0; right: 5px; font-size: 12px;"><span>Edit</span></a>
                 </div>
                 <div id="list">
                     <!-- List group -->
                     <ul id="combat" class="list-group">
                         <li class="list-group-item fighter">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <h5>Name of Player</h5>
+                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                            <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
                         </li>
                         <li class="list-group-item fighter">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <h5>Name of Player</h5>
+                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                            <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
                         </li>
                         <li class="list-group-item fighter">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>    
-                            <h5>Name of Player</h5>
+                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                            <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
                         </li>
                         <li class="list-group-item fighter">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <h5>Name of Player</h5>
+                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                            <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
                         </li>
                         <li class="list-group-item fighter" style="border-bottom: none;">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <h5>Name of Player</h5>
+                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                            <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
                         </li>

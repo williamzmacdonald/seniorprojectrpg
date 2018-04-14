@@ -9,7 +9,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 24px;">
-                {{ config('app.name', 'laravel') }}
+                EVOLVED
             </a>
         </div>
 
