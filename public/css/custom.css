@@ -42,6 +42,21 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
+.delete_combat {
+  font-size: 12px;
+  width: 62px;
+  height: 32px;
+}
+
+.add_combat {
+  position: absolute;
+  top: 10px;
+  right:  0;
+  font-size: 12px;
+  width: 62px;
+  height: 32px;
+}
+
 .fighter {
   height: 50px;
   background: none;

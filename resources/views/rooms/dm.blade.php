@@ -63,39 +63,44 @@
                     <!-- List group -->
                     <ul id="combat" class="list-group">
                         <li class="list-group-item fighter">
-                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
                             <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
                             <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
+                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
                         </li>
                         <li class="list-group-item fighter">
-                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
                             <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
                             <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
+                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
                         </li>
                         <li class="list-group-item fighter">
-                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
                             <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
                             <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
+                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
                         </li>
                         <li class="list-group-item fighter">
-                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
                             <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
                             <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
+                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
                         </li>
                         <li class="list-group-item fighter" style="border-bottom: none;">
-                            <a href="#" role="button" class="btn btn-default delete_combat" style="display: none; font-size: 12px; width: 62px; height: 32px;">Delete</a>
+                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
                             <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
                             <h5 class="player_combat">Name of Player</h5>
                             <h6 class="health">Health</h6>
                             <h6 class="initiative">Initiative</h6>
+                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
                         </li>
                     </ul>
                 </div>
