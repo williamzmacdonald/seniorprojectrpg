@@ -1,5 +1,5 @@
 <?php
-
+use App\Events\combatUpdated;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,7 +26,9 @@ Route::post('/rooms/notes', 'NotesController@store');
 Route::put('/rooms/notes/{id}', 'NotesController@update');
 Route::delete('rooms/notes/{id}', 'NotesController@destroy');
 
-
+Route::get('/rooms/{room}/update', function(){
+	combatUpdated::dispatch();
+});
 
 Auth::routes();
 

@@ -18,6 +18,7 @@
                 <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
                     <h3>Combat</h3>
                 </div>
+                <combat></combat>
                 <div id="list">
                     <!-- List group -->
                     <ul id="combat" class="list-group">

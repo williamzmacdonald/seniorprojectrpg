@@ -24,6 +24,7 @@
         @include('inc.footer')
 
         <!-- Scripts -->
+
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('js/notes.js') }}"></script>
         <script src="{{ asset('js/combat.js') }}"></script> 

@@ -55,7 +55,6 @@ class RoomsController extends Controller
 	}
 	public function show(string $joinlink)
 	{
-		combatUpdated::dispatch();
 		//get user and get room by given URL
 		$user = \Auth::user();
 		$room = gameroom::where('joinlink', $joinlink)->first();
