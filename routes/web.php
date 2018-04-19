@@ -26,6 +26,8 @@ Route::post('/rooms/notes', 'NotesController@store');
 Route::put('/rooms/notes/{id}', 'NotesController@update');
 Route::delete('rooms/notes/{id}', 'NotesController@destroy');
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

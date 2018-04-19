@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\gameroom;
 use App\userroom;
 use App\note;
+use App\Events\combatUpdated;
 
 //generates random url, used on room creation
 function randomURL($URLlength = 8) {
@@ -54,6 +55,7 @@ class RoomsController extends Controller
 	}
 	public function show(string $joinlink)
 	{
+		combatUpdated::dispatch();
 		//get user and get room by given URL
 		$user = \Auth::user();
 		$room = gameroom::where('joinlink', $joinlink)->first();
@@ -70,14 +72,22 @@ class RoomsController extends Controller
 		}
 		//fetch notes based on gameroom and user
 		$notes = note::where('gameroom_id', $room->id)->where('user_id', $user->id)->get();
+		$combat = $room->combat()->first();
+		if($combat != null)
+			$fighters = $combat->fighters()->get();
+		else
+		{
+			$fighters = null;
+		}
+		
 		//fetch pivot
 		if($usergameroom->pivot->gamemaster == 1)
 		{
-			return view('rooms.dm', compact('room', 'notes', 'user'));
+			return view('rooms.dm', compact('room', 'notes', 'user', 'fighters'));
 		}
 		else
 		{
-			return view('rooms.player', compact('room', 'notes', 'user'));
+			return view('rooms.player', compact('room', 'notes', 'user', 'fighters'));
 		}
 	}
 }

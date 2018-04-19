@@ -11,4 +11,8 @@ class gameroom extends Model
 	{
 		return $this->belongsToMany('App\User')->withTimestamps()->withPivot('gamemaster');				
 	}
+	public function combat()
+	{
+		return $this->hasOne('App\combat');
+	}
 }
