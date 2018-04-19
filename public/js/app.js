@@ -48207,15 +48207,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+	props: {
+		joinlink: {
+			default: ''
+		}
+	},
+
 	data: function data() {
 		return {
 			fighters: []
 		};
 	},
-	created: function created() {
+	mounted: function mounted() {
 		var _this = this;
 
-		axios.get('/rooms/{room}/update').then(function (response) {
+		axios.get(joinlink + '/update').then(function (response) {
 			return _this.fighters = response.data;
 		});
 	}

@@ -1,5 +1,11 @@
 @extends('layouts.app')
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<script>
+    var gameroom_id = {!! json_encode($room->id) !!};
+    var user_id = {!! json_encode($user->id) !!};
+    var notes = {!! json_encode($notes) !!};
+    var joinlink = {!! json_encode($room->joinlink) !!};
+</script>
 @section('content')
 <div class="pages background">
     <div id="mySidenav" class="sidenav">
@@ -18,7 +24,7 @@
                 <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
                     <h3>Combat</h3>
                 </div>
-                <combat></combat>
+                <combat joinlink={{ $room->joinlink }}></combat>
                 <div id="list">
                     <!-- List group -->
                     <ul id="combat" class="list-group">

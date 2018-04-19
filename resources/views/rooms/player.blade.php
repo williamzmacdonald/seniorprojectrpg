@@ -4,6 +4,7 @@
 	var gameroom_id = {!! json_encode($room->id) !!};
     var user_id = {!! json_encode($user->id) !!};
     var notes = {!! json_encode($notes) !!};
+    var joinlink = {!! json_encode($room->joinlink) !!};
 </script>
 @section('content')
 	

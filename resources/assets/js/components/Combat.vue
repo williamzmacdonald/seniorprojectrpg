@@ -8,14 +8,21 @@
 
 <script>
 export default {
+	props: {
+		joinlink: {
+			default: ''
+		}
+	},
+
 	data(){
 		return{
 			fighters: []
 		};
 	},
 
-	created(){
-		axios.get('/rooms/{room}/update').then(response => (this.fighters = response.data));
+
+	mounted(){
+		axios.get(joinlink+'/update').then(response => (this.fighters = response.data));
 	}
 };
 </script>
