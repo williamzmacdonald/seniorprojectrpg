@@ -71,13 +71,7 @@ class RoomsController extends Controller
 		}
 		//fetch notes based on gameroom and user
 		$notes = note::where('gameroom_id', $room->id)->where('user_id', $user->id)->get();
-		$combat = $room->combat()->first();
-		if($combat != null)
-			$fighters = $combat->fighters()->get();
-		else
-		{
-			$fighters = null;
-		}
+		$fighters = $room->fighters;
 		
 		//fetch pivot
 		if($usergameroom->pivot->gamemaster == 1)

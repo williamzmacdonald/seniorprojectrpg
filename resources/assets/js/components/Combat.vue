@@ -1,7 +1,10 @@
 <template>
 	<div class = "container">
 		<ul>
-			<li v-for="fighter in fighters" v-text="fighter"></li>
+			<li v-for="fighter in fighters">
+				{{ fighter.name }} - {{ fighter.initiative }} 
+				<input type = "text" id = {{ fighter.id }} v-model = updateFighter @blur='changeFighter'>Set Initiative</input>
+			</li>
 		</ul>
 	</div>
 </template>
@@ -16,13 +19,22 @@ export default {
 
 	data(){
 		return{
-			fighters: []
+			fighters: [],
+			updateFighter: '',
+			fighterid: 0
 		};
 	},
 
 
 	mounted(){
-		axios.get(joinlink+'/update').then(response => (this.fighters = response.data));
+		axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
+	},
+
+	methods: {
+		changeFighter(){
+			axios.put(joinlink+'/fighters/'+fighterid, { initiative: this.updateFighter });
+
+		}
 	}
 };
 </script>

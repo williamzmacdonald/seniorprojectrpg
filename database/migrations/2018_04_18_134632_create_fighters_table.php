@@ -16,12 +16,13 @@ class CreateFightersTable extends Migration
         Schema::create('fighters', function (Blueprint $table) {
             $table->increments('id');
 			$table->text('name');
-			$table->text('avatarurl');
-			$table->integer('health');
-			$table->integer('initiative');
-			$table->unsignedInteger('combat_id');
+			$table->text('avatarurl')->default(null);
+			$table->integer('health')->default(0);
+			$table->integer('initiative')->default(0);
+            $table->boolean('enabled')->default(false);
+			$table->unsignedInteger('gameroom_id')->nullable();
 			$table->unsignedInteger('user_id')->nullable();
-			$table->foreign('combat_id')->references('id')->on('combats');
+			$table->foreign('gameroom_id')->references('id')->on('gamerooms');
 			$table->foreign('user_id')->references('id')->on('users');
         });
     }

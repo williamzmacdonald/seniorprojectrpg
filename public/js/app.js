@@ -48205,6 +48205,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
@@ -48215,15 +48218,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 	data: function data() {
 		return {
-			fighters: []
+			fighters: [],
+			updateFighter: '',
+			fighterid: 0
 		};
 	},
 	mounted: function mounted() {
 		var _this = this;
 
-		axios.get(joinlink + '/update').then(function (response) {
+		axios.get(joinlink + '/reload').then(function (response) {
 			return _this.fighters = response.data;
 		});
+	},
+
+
+	methods: {
+		changeFighter: function changeFighter() {
+			axios.put(joinlink + '/fighters/' + fighterid, { initiative: this.updateFighter });
+		}
 	}
 });
 
@@ -48239,7 +48251,37 @@ var render = function() {
     _c(
       "ul",
       _vm._l(_vm.fighters, function(fighter) {
-        return _c("li", { domProps: { textContent: _vm._s(fighter) } })
+        return _c("li", [
+          _vm._v(
+            "\n\t\t\t" +
+              _vm._s(fighter.name) +
+              " - " +
+              _vm._s(fighter.initiative) +
+              " \n\t\t\t"
+          ),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.updateFighter,
+                expression: "updateFighter"
+              }
+            ],
+            attrs: { type: "text", id: "{{", "fighter.id": "", "}}": "" },
+            domProps: { value: _vm.updateFighter },
+            on: {
+              blur: _vm.changeFighter,
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.updateFighter = $event.target.value
+              }
+            }
+          }),
+          _vm._v("Set Initiative")
+        ])
       })
     )
   ])
