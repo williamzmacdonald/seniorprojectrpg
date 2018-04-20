@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\gameroom;
+use App\fighter;
 
 class FighterController extends Controller
 {
@@ -41,5 +42,15 @@ class FighterController extends Controller
 		$fighters = $gameroom->fighters()->where('enabled', true)
 						->orderBy('initiative', 'desc')->get();
 		return $fighters;
+	}
+	public function update(string $joinlink, int $fighter_id)
+	{
+		$fighter = fighter::find($fighter_id);
+		if(request('initiative') != null)
+			$fighter->initiative = request('initiative');
+		
+
+		$fighter->save();
+		return $fighter;
 	}
 }

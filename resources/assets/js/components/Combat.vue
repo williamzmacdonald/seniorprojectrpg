@@ -1,9 +1,9 @@
 <template>
 	<div class = "container">
 		<ul>
-			<li v-for="fighter in fighters">
+			<li v-for="(fighter, index) in fighters">
 				{{ fighter.name }} - {{ fighter.initiative }} 
-				<input type = "text" id = {{ fighter.id }} v-model = updateFighter @blur='changeFighter'>Set Initiative</input>
+				<input type = "text" :id = "fighter.id" v-model = updateFighter @blur='changeFighter(index)'>Set Initiative</input>
 			</li>
 		</ul>
 	</div>
@@ -31,9 +31,9 @@ export default {
 	},
 
 	methods: {
-		changeFighter(){
-			axios.put(joinlink+'/fighters/'+fighterid, { initiative: this.updateFighter });
-
+		changeFighter(index){
+			axios.put(joinlink+'/fighters/'+this.fighters[index].id, { initiative: this.updateFighter })
+				.then(response => (Vue.set(this.fighters, index, response.data)));
 		}
 	}
 };

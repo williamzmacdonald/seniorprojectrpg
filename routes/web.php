@@ -27,6 +27,9 @@ Route::put('/rooms/notes/{id}', 'NotesController@update');
 Route::delete('rooms/notes/{id}', 'NotesController@destroy');
 Route::post('rooms/{room}/fighters', 'FighterController@store');
 Route::get('rooms/{room}/reload', 'FighterController@reload');
+Route::put('rooms/{room}/fighters/{fighter}', 'FighterController@update');
+
+
 Route::get('/rooms/{room}/update', function(string $joinlink){
 	combatUpdated::dispatch();
 });

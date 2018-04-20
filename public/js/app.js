@@ -48233,8 +48233,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 	methods: {
-		changeFighter: function changeFighter() {
-			axios.put(joinlink + '/fighters/' + fighterid, { initiative: this.updateFighter });
+		changeFighter: function changeFighter(index) {
+			var _this2 = this;
+
+			axios.put(joinlink + '/fighters/' + this.fighters[index].id, { initiative: this.updateFighter }).then(function (response) {
+				return Vue.set(_this2.fighters, index, response.data);
+			});
 		}
 	}
 });
@@ -48250,7 +48254,7 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _c(
       "ul",
-      _vm._l(_vm.fighters, function(fighter) {
+      _vm._l(_vm.fighters, function(fighter, index) {
         return _c("li", [
           _vm._v(
             "\n\t\t\t" +
@@ -48268,10 +48272,12 @@ var render = function() {
                 expression: "updateFighter"
               }
             ],
-            attrs: { type: "text", id: "{{", "fighter.id": "", "}}": "" },
+            attrs: { type: "text", id: fighter.id },
             domProps: { value: _vm.updateFighter },
             on: {
-              blur: _vm.changeFighter,
+              blur: function($event) {
+                _vm.changeFighter(index)
+              },
               input: function($event) {
                 if ($event.target.composing) {
                   return
