@@ -7,6 +7,7 @@
     var joinlink = {!! json_encode($room->joinlink) !!};
 </script>
 @section('content')
+<combat joinlink={{ $room->joinlink }}></combat>
 <div class="pages background">
     <div id="mySidenav" class="sidenav">
         <div class="container">
@@ -21,95 +22,94 @@
     <div class="container relative" id="appendArea" style="height: 1000px; margin: auto;" ondrop="drop(event, this)" ondragover="allowDrop(event)">
         <div class="row relative">
             <div class="absolute pull-left" style="width: 500px; margin-left: 40px;">
-                <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
-                    <h3>Combat</h3>
-                </div>
-                <combat joinlink={{ $room->joinlink }}></combat>
-                <div id="list">
-                    <!-- List group -->
-                    <ul id="combat" class="list-group">
-                        <li class="list-group-item fighter">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <h5>Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                        </li>
-                        <li class="list-group-item fighter">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <h5>Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                        </li>
-                        <li class="list-group-item fighter">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>    
-                            <h5>Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                        </li>
-                        <li class="list-group-item fighter">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <h5>Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                        </li>
-                        <li class="list-group-item fighter" style="border-bottom: none;">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <h5>Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                        </li>
-                    </ul>
+                <div>
+                    <h3 class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">Combat</h3>
+                    <div>
+                        <!-- List group -->
+                        <ul id="combat" class="list-group">
+                            <li class="list-group-item fighter">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <h5>Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                            </li>
+                            <li class="list-group-item fighter">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <h5>Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                            </li>
+                            <li class="list-group-item fighter">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>    
+                                <h5>Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                            </li>
+                            <li class="list-group-item fighter">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <h5>Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                            </li>
+                            <li class="list-group-item fighter" style="border-bottom: none;">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <h5>Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div id="combat_list" class="aboslute pull-right" style="width: 500px; margin-right: 40px;">
-                <div class="assassin uppercase relative" style="text-align: center; background: none; border-bottom: none;">
-                    <h3>Combat List</h3>
-                    <a role="button" class="btn btn-default absolute" id="edit_combat" style="top: 0; right: 5px; font-size: 12px;"><span>Edit</span></a>
-                </div>
-                <div id="list">
-                    <!-- List group -->
-                    <ul id="combat" class="list-group">
-                        <li class="list-group-item fighter">
-                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
-                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                            <h5 class="player_combat">Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
-                        </li>
-                        <li class="list-group-item fighter">
-                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
-                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                            <h5 class="player_combat">Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
-                        </li>
-                        <li class="list-group-item fighter">
-                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
-                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                            <h5 class="player_combat">Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
-                        </li>
-                        <li class="list-group-item fighter">
-                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
-                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                            <h5 class="player_combat">Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
-                        </li>
-                        <li class="list-group-item fighter" style="border-bottom: none;">
-                            <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
-                            <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                            <h5 class="player_combat">Name of Player</h5>
-                            <h6 class="health">Health</h6>
-                            <h6 class="initiative">Initiative</h6>
-                            <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
-                        </li>
-                    </ul>
+                <div>
+                    <h3 class="assassin uppercase relative" style="text-align: center; background: none; border-bottom: none;">Combat List</h3>
+                    <a role="button" class="btn btn-default absolute" id="edit_combat" style="top: 10px;; right: 50px; font-size: 12px;"><span>Edit</span></a>
+                    <div>
+                        <!-- List group -->
+                        <ul id="combat" class="list-group">
+                            <li class="list-group-item fighter">
+                                <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
+                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                                <h5 class="player_combat">Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                                <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
+                            </li>
+                            <li class="list-group-item fighter">
+                                <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
+                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                                <h5 class="player_combat">Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                                <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
+                            </li>
+                            <li class="list-group-item fighter">
+                                <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
+                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                                <h5 class="player_combat">Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                                <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
+                            </li>
+                            <li class="list-group-item fighter">
+                                <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
+                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                                <h5 class="player_combat">Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                                <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
+                            </li>
+                            <li class="list-group-item fighter" style="border-bottom: none;">
+                                <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
+                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
+                                <h5 class="player_combat">Name of Player</h5>
+                                <h6 class="health">Health</h6>
+                                <h6 class="initiative">Initiative</h6>
+                                <a href="#" role="button" class="btn btn-success add_combat" style="display: none;">Add</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -188,8 +188,9 @@
 
 <!-- Notes Section -->
 <div class="card col-sm-3" id="notes" style="height:447px; width: 430px; display: none; margin-right: 15px;">
-    <div class="panel-heading assassin uppercase font-22">Notes</div>
-    <a href="javascript:addnew();" role="button" class="btn btn-primary" id="add_new"><span>&#43;</span></a>
+    <div class="panel-heading assassin font-22 uppercase" style="text-align: center">Notes</div>
+    <a role="button" class="btn btn-primary" id="add_new"><span>&#43;</span></a>
+    <a role="button" class="btn btn-primary" id="go_back"><span >&#8592;</span></a>
     <div id="note" style="display: none;">
         <div class="form-group">
             <input type="text" class="form-control" id="title" name ="title" placeholder="Title"></input>
@@ -197,25 +198,35 @@
         <div class="form-group">
             <textarea class="form-control" id="area" rows="10" cols="50" placeholder="Description"></textarea>
         </div>
-        <button onclick="javascript:save();" type="submit" class="btn btn-success font-white" style="margin-top: 10px;">Save</button>
+        <button id="save" type="submit" class="btn btn-success font-white" style="margin-top: 10px;">Save</button>
         <button onclick="clear();" type="submit" class="btn btn-primary font-white" id="cl" style="margin-top: 10px;">Clear</button>                            
     </div>
-    <div class="panel panel-default" id="list">
-        <!-- List group -->
-        <ul style="padding-left: 0;">
-            <li style="margin-left: 10px;">
-                <a href="javascript:addNote();">
-                    <h4>Title #1</h4>
-                    <p class="font-black">Text Content #1</p>
-                </a>
-            </li>
-            <li style="margin-left: 10px; border-top: 1px solid gainsboro; width: 350px;">
-                <a href="#">
-                    <h4>Title #2</h4>
-                    <p class="font-black">Text Content #2</p>
-                </a>
-            </li>
-        </ul>
+    <div id="noteList" style="height: 390px; width: 390px; overflow: auto;">           
+        <div class="panel panel-default" id="notep" style="width: 350px; ">
+            <ul id="list" style="padding-left: 0;" >
+                @if ($notes->count() >= 1)
+                    @foreach ($notes as $key=>$note)
+                        @if($key == 0)
+                            <li id="note-{{$note->id}}" style="margin-left: 10px; width: 325px; border: none;">
+                                <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
+ 									<button type = "submit" class="btn btn-danger btn-delete btn-xs delete-note" value="{{$note->id}}" style="float: right">X</button>
+									<h4>{{ $note->title }}</h4> 
+                                    <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
+                                </div>
+                            </li>
+                        @else
+                            <li id="note-{{$note->id}}" style="margin-left: 10px; border-top: 1px solid gainsboro; width: 325px;">
+                                <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
+									<button type = "submit" class="btn btn-danger btn-delete btn-xs delete-note" value="{{$note->id}}" style="float: right">X</button>
+                                    <h4>{{ $note->title }}</h4> 
+                                    <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
+                                </div>
+                            </li>
+                        @endif
+                     @endforeach
+                @endif
+            </ul>
+        </div>
     </div>
 </div>
 @endsection

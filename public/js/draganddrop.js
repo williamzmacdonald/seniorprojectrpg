@@ -1,11 +1,9 @@
 function openNav() {
 	document.getElementById("mySidenav").style.height = "100px";
-	document.getElementById("pgs").style.marginBottom = "100px";
 }
 
 function closeNav() {
 	document.getElementById("mySidenav").style.height = "0";
-	document.getElementById("pgs").style.marginBottom = "0";
 }
 
 function allowDrop(ev) {
