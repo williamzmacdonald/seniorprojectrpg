@@ -48214,6 +48214,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
@@ -48268,128 +48311,308 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "container",
-      staticStyle: { "max-width": "500px", margin: "auto" }
-    },
-    [
-      _c(
-        "ul",
-        _vm._l(_vm.fighters, function(fighter, index) {
-          return _c("li", [
-            _c(
-              "button",
-              {
-                on: {
-                  click: function($event) {
-                    _vm.changeFighter(index)
-                  }
+  return _c("div", { staticClass: "container", attrs: { id: "app" } }, [
+    _c(
+      "ul",
+      _vm._l(_vm.fighters, function(fighter, index) {
+        return _c("li", [
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  _vm.changeFighter(index)
                 }
-              },
-              [_vm._v("Update")]
-            ),
-            _vm._v(
-              "\n\t\t\t\t" +
-                _vm._s(fighter.name) +
-                " - " +
-                _vm._s(fighter.initiative) +
-                " - " +
-                _vm._s(fighter.health) +
-                " hp\n\t\t\t"
-            )
-          ])
-        })
-      ),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.updateInitiative,
-            expression: "updateInitiative"
-          }
-        ],
-        attrs: { type: "text", placeholder: "initiative" },
-        domProps: { value: _vm.updateInitiative },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.updateInitiative = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.updateHealth,
-            expression: "updateHealth"
-          }
-        ],
-        attrs: { type: "text", placeholder: "health" },
-        domProps: { value: _vm.updateHealth },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.updateHealth = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.updateAvatar,
-            expression: "updateAvatar"
-          }
-        ],
-        attrs: { type: "text", placeholder: "avatarurl" },
-        domProps: { value: _vm.updateAvatar },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.updateAvatar = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.updateName,
-            expression: "updateName"
-          }
-        ],
-        attrs: { type: "text", placeholder: "name" },
-        domProps: { value: _vm.updateName },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.updateName = $event.target.value
-          }
-        }
+              }
+            },
+            [_vm._v("Update")]
+          ),
+          _vm._v(
+            "\n\t\t\t\t@" +
+              _vm._s(fighter.name) +
+              " - @" +
+              _vm._s(fighter.initiative) +
+              " - @" +
+              _vm._s(fighter.health) +
+              " hp\n\t\t\t"
+          )
+        ])
       })
-    ]
-  )
+    ),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.updateInitiative,
+          expression: "updateInitiative"
+        }
+      ],
+      attrs: { type: "text", placeholder: "initiative" },
+      domProps: { value: _vm.updateInitiative },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.updateInitiative = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.updateHealth,
+          expression: "updateHealth"
+        }
+      ],
+      attrs: { type: "text", placeholder: "health" },
+      domProps: { value: _vm.updateHealth },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.updateHealth = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.updateAvatar,
+          expression: "updateAvatar"
+        }
+      ],
+      attrs: { type: "text", placeholder: "avatarurl" },
+      domProps: { value: _vm.updateAvatar },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.updateAvatar = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.updateName,
+          expression: "updateName"
+        }
+      ],
+      attrs: { type: "text", placeholder: "name" },
+      domProps: { value: _vm.updateName },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.updateName = $event.target.value
+        }
+      }
+    })
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "row relative",
+        staticStyle: {
+          margin: "0 auto",
+          width: "60%",
+          "padding-bottom": "30px"
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticStyle: { width: "700px", "margin-right": "40px" },
+            attrs: { id: "combat_list" }
+          },
+          [
+            _c("div", [
+              _c(
+                "h3",
+                {
+                  staticClass: "assassin uppercase relative",
+                  staticStyle: {
+                    "text-align": "center",
+                    background: "none",
+                    "border-bottom": "none"
+                  }
+                },
+                [_vm._v("Combat List")]
+              ),
+              _vm._v(" "),
+              _c(
+                "a",
+                {
+                  staticClass: "btn btn-default absolute",
+                  staticStyle: { top: "10px", right: "0", "font-size": "12px" },
+                  attrs: { role: "button", id: "edit_combat" }
+                },
+                [_c("span", [_vm._v("Edit")])]
+              ),
+              _vm._v(" "),
+              _c("div", [
+                _c(
+                  "ul",
+                  { staticClass: "list-group", attrs: { id: "combat" } },
+                  [
+                    _c("li", { staticClass: "list-group-item fighter" }, [
+                      _c("span", {
+                        staticClass: "glyphicon glyphicon-user avatar_combat",
+                        attrs: { "aria-hidden": "true" }
+                      }),
+                      _vm._v(" "),
+                      _c("h5", { staticClass: "player_combat" }, [
+                        _vm._v("Name of Player")
+                      ]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "health" }, [_vm._v("Health")]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "initiative" }, [
+                        _vm._v("Initiative")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary delete_combat",
+                          staticStyle: { display: "none" },
+                          attrs: { href: "#", role: "button" }
+                        },
+                        [_vm._v("Delete")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "list-group-item fighter" }, [
+                      _c("span", {
+                        staticClass: "glyphicon glyphicon-user avatar_combat",
+                        attrs: { "aria-hidden": "true" }
+                      }),
+                      _vm._v(" "),
+                      _c("h5", { staticClass: "player_combat" }, [
+                        _vm._v("Name of Player")
+                      ]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "health" }, [_vm._v("Health")]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "initiative" }, [
+                        _vm._v("Initiative")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary delete_combat",
+                          staticStyle: { display: "none" },
+                          attrs: { href: "#", role: "button" }
+                        },
+                        [_vm._v("Delete")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("li", { staticClass: "list-group-item fighter" }, [
+                      _c("span", {
+                        staticClass: "glyphicon glyphicon-user avatar_combat",
+                        attrs: { "aria-hidden": "true" }
+                      }),
+                      _vm._v(" "),
+                      _c("h5", { staticClass: "player_combat" }, [
+                        _vm._v("Name of Player")
+                      ]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "health" }, [_vm._v("Health")]),
+                      _vm._v(" "),
+                      _c("h6", { staticClass: "initiative" }, [
+                        _vm._v("Initiative")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "btn btn-primary delete_combat",
+                          staticStyle: { display: "none" },
+                          attrs: { href: "#", role: "button" }
+                        },
+                        [_vm._v("Delete")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "li",
+                      {
+                        staticClass: "list-group-item fighter",
+                        staticStyle: { "border-bottom": "none" }
+                      },
+                      [
+                        _c("span", {
+                          staticClass: "glyphicon glyphicon-user avatar_combat",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c("h5", { staticClass: "player_combat" }, [
+                          _vm._v("Name of Player")
+                        ]),
+                        _vm._v(" "),
+                        _c("h6", { staticClass: "health" }, [_vm._v("Health")]),
+                        _vm._v(" "),
+                        _c("h6", { staticClass: "initiative" }, [
+                          _vm._v("Initiative")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary delete_combat",
+                            staticStyle: { display: "none" },
+                            attrs: { href: "#", role: "button" }
+                          },
+                          [_vm._v("Delete")]
+                        )
+                      ]
+                    )
+                  ]
+                )
+              ])
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-success absolute",
+            staticStyle: { bottom: "0", right: "0", display: "none" },
+            attrs: { role: "button", id: "add_combat" }
+          },
+          [_c("span", [_vm._v("Add")])]
+        )
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

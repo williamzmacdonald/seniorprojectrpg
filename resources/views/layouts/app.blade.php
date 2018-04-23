@@ -30,7 +30,7 @@
         <script src="{{ asset('js/combat.js') }}"></script> 
         <script src="{{ asset('js/popup.js') }}"></script>
         <script src="{{ asset('js/draganddrop.js') }}"></script> 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+        <!-- production version, optimized for size and speed -->
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     </body>
 </html>
