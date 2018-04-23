@@ -7,7 +7,6 @@
     var joinlink = {!! json_encode($room->joinlink) !!};
 </script>
 @section('content')
-<combat joinlink={{ $room->joinlink }}></combat>
 <div class="pages background">
     <div id="mySidenav" class="sidenav">
         <div class="container">
@@ -229,4 +228,5 @@
         </div>
     </div>
 </div>
+<combat joinlink={{ $room->joinlink }}></combat>
 @endsection
