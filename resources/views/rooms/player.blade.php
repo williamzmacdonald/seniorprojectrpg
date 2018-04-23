@@ -7,8 +7,6 @@
     var joinlink = {!! json_encode($room->joinlink) !!};
 </script>
 @section('content')
-	
-
 <div class="pages background">
     <div class="container">
         <div class="row">
@@ -48,9 +46,9 @@
                             <button onclick="clear();" type="submit" class="btn btn-primary font-white" id="cl" style="margin-top: 10px;">Clear</button>                            
                         </div>
                         <div id="noteList" style="height: 390px; width: 390px; overflow: auto;">           
-                                <div class="panel panel-default" id="notep" style="width: 350px; ">
-                                    <ul id="list" style="padding-left: 0;" >
-                                        @if ($notes->count() >= 1)
+                            <div class="panel panel-default" id="notep" style="width: 350px; ">
+                                <ul id="list" style="padding-left: 0;" >
+                                    @if ($notes->count() >= 1)
                                         @foreach ($notes as $key=>$note)
                                             @if($key == 0)
                                                 <li id="note-{{$note->id}}" style="margin-left: 10px; width: 325px; border: none;">
@@ -70,9 +68,9 @@
                                                 </li>
                                             @endif
                                         @endforeach
-                                        @endif
-                                    </ul>
-                                </div>
+                                    @endif
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -83,7 +81,7 @@
             <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
                 <h3>Combat</h3>
             </div>
-            <div style="margin: 0 auto; width: 70%;" id="list">
+            <div style="margin: 0 auto; width: 70%;">
                 <!-- List group -->
                 <ul id="combat" class="list-group">
                     <li class="list-group-item fighter">
