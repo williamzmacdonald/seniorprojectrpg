@@ -3,7 +3,7 @@
 		<ul>
 			<li v-for="(fighter, index) in fighters">
 				<button @click= "changeFighter(index)">Update</button>
-				@{{ fighter.name }} - @{{ fighter.initiative }} - @{{ fighter.health }} hp
+				{{ fighter.name }} - {{ fighter.initiative }} - {{ fighter.health }} hp
 			</li>		
 		</ul>
 
@@ -22,25 +22,11 @@
                                 <h6 class="initiative">Initiative</h6>
                                 <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
                             </li>
-                            <li class="list-group-item fighter">
+                            <li v-for="(fighter, index) in fighters" class="list-group-item fighter" style="border-bottom: 1px solid black;">
                                 <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                                <h5 class="player_combat">Name of Player</h5>
-                                <h6 class="health">Health</h6>
-                                <h6 class="initiative">Initiative</h6>
-                                <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
-                            </li>
-                            <li class="list-group-item fighter">
-                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                                <h5 class="player_combat">Name of Player</h5>
-                                <h6 class="health">Health</h6>
-                                <h6 class="initiative">Initiative</h6>
-                                <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
-                            </li>
-                            <li class="list-group-item fighter" style="border-bottom: none;">
-                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                                <h5 class="player_combat">Name of Player</h5>
-                                <h6 class="health">Health</h6>
-                                <h6 class="initiative">Initiative</h6>
+                                <h5 class="player_combat">{{ fighter.name }}</h5>
+                                <h6 class="health">{{ fighter.health }}</h6>
+                                <h6 class="initiative">{{ fighter.initiative }}</h6>
                                 <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
                             </li>
                         </ul>
