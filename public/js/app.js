@@ -48208,6 +48208,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
@@ -48219,7 +48225,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 	data: function data() {
 		return {
 			fighters: [],
-			updateFighter: '',
+			updateInitiative: '',
+			updateHealth: '',
+			updateAvatar: '',
+			updateName: '',
 			fighterid: 0
 		};
 	},
@@ -48236,9 +48245,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		changeFighter: function changeFighter(index) {
 			var _this2 = this;
 
-			axios.put(joinlink + '/fighters/' + this.fighters[index].id, { initiative: this.updateFighter }).then(function (response) {
+			axios.put(joinlink + '/fighters/' + this.fighters[index].id, { initiative: this.updateInitiative,
+				health: this.updateHealth,
+				avatarurl: this.updateAvatar,
+				name: this.updateName
+			}).then(function (response) {
 				return Vue.set(_this2.fighters, index, response.data);
 			});
+			this.updateInitiative = '';
+			this.updateHealth = '';
+			this.updateAvatar = '';
+			this.updateName = '';
 		}
 	}
 });
@@ -48251,46 +48268,126 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c(
-      "ul",
-      _vm._l(_vm.fighters, function(fighter, index) {
-        return _c("li", [
-          _vm._v(
-            "\n\t\t\t" +
-              _vm._s(fighter.name) +
-              " - " +
-              _vm._s(fighter.initiative) +
-              " \n\t\t\t"
-          ),
-          _c("input", {
-            directives: [
+  return _c(
+    "div",
+    {
+      staticClass: "container",
+      staticStyle: { "max-width": "500px", margin: "auto" }
+    },
+    [
+      _c(
+        "ul",
+        _vm._l(_vm.fighters, function(fighter, index) {
+          return _c("li", [
+            _c(
+              "button",
               {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.updateFighter,
-                expression: "updateFighter"
-              }
-            ],
-            attrs: { type: "text", id: fighter.id },
-            domProps: { value: _vm.updateFighter },
-            on: {
-              blur: function($event) {
-                _vm.changeFighter(index)
-              },
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+                on: {
+                  click: function($event) {
+                    _vm.changeFighter(index)
+                  }
                 }
-                _vm.updateFighter = $event.target.value
-              }
+              },
+              [_vm._v("Update")]
+            ),
+            _vm._v(
+              "\n\t\t\t\t" +
+                _vm._s(fighter.name) +
+                " - " +
+                _vm._s(fighter.initiative) +
+                " - " +
+                _vm._s(fighter.health) +
+                " hp\n\t\t\t"
+            )
+          ])
+        })
+      ),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.updateInitiative,
+            expression: "updateInitiative"
+          }
+        ],
+        attrs: { type: "text", placeholder: "initiative" },
+        domProps: { value: _vm.updateInitiative },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
             }
-          }),
-          _vm._v("Set Initiative")
-        ])
+            _vm.updateInitiative = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.updateHealth,
+            expression: "updateHealth"
+          }
+        ],
+        attrs: { type: "text", placeholder: "health" },
+        domProps: { value: _vm.updateHealth },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.updateHealth = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.updateAvatar,
+            expression: "updateAvatar"
+          }
+        ],
+        attrs: { type: "text", placeholder: "avatarurl" },
+        domProps: { value: _vm.updateAvatar },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.updateAvatar = $event.target.value
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.updateName,
+            expression: "updateName"
+          }
+        ],
+        attrs: { type: "text", placeholder: "name" },
+        domProps: { value: _vm.updateName },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.updateName = $event.target.value
+          }
+        }
       })
-    )
-  ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

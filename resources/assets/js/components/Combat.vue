@@ -1,11 +1,17 @@
 <template>
-	<div class = "container">
+	<div class = "container" style="max-width: 500px;
+    margin: auto;">
 		<ul>
 			<li v-for="(fighter, index) in fighters">
-				{{ fighter.name }} - {{ fighter.initiative }} 
-				<input type = "text" :id = "fighter.id" v-model = updateFighter @blur='changeFighter(index)'>Set Initiative</input>
-			</li>
+				<button @click= "changeFighter(index)">Update</button>
+				{{ fighter.name }} - {{ fighter.initiative }} - {{ fighter.health }} hp
+			</li>		
 		</ul>
+		<input type = "text" v-model = updateInitiative placeholder="initiative"></input>
+		<input type = "text" v-model = updateHealth placeholder="health"></input>
+		<input type = "text" v-model = updateAvatar placeholder="avatarurl"></input>
+		<input type = "text" v-model = updateName placeholder="name"></input>
+
 	</div>
 </template>
 
@@ -20,7 +26,10 @@ export default {
 	data(){
 		return{
 			fighters: [],
-			updateFighter: '',
+			updateInitiative: '',
+			updateHealth: '',
+			updateAvatar: '',
+			updateName: '',
 			fighterid: 0
 		};
 	},
@@ -32,8 +41,16 @@ export default {
 
 	methods: {
 		changeFighter(index){
-			axios.put(joinlink+'/fighters/'+this.fighters[index].id, { initiative: this.updateFighter })
-				.then(response => (Vue.set(this.fighters, index, response.data)));
+			axios.put(joinlink+'/fighters/'+this.fighters[index].id, 
+				{ 	initiative: this.updateInitiative,
+					health: this.updateHealth,
+					avatarurl: this.updateAvatar,
+					name: this.updateName
+				}).then(response => (Vue.set(this.fighters, index, response.data)));
+			this.updateInitiative= '';
+			this.updateHealth= '';
+			this.updateAvatar='';
+			this.updateName= '';
 		}
 	}
 };

@@ -48,7 +48,12 @@ class FighterController extends Controller
 		$fighter = fighter::find($fighter_id);
 		if(request('initiative') != null)
 			$fighter->initiative = request('initiative');
-		
+		if(request('health') != null)
+			$fighter->health = request('health');
+		if(request('avatarurl') != null)
+			$fighter->avatarurl = request('avatarurl');
+		if(request('name') != null)
+			$fighter->name = request('name');
 
 		$fighter->save();
 		return $fighter;
