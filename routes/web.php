@@ -27,6 +27,7 @@ Route::put('/rooms/notes/{id}', 'NotesController@update');
 Route::delete('rooms/notes/{id}', 'NotesController@destroy');
 Route::post('rooms/{room}/fighters', 'FighterController@store');
 Route::get('rooms/{room}/reload', 'FighterController@reload');
+Route::delete('rooms/{room}/fighters/{fighter}', 'FighterController@delete');
 Route::put('rooms/{room}/fighters/{fighter}', 'FighterController@update');
 
 

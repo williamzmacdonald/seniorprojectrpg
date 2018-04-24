@@ -21,7 +21,7 @@
                                 <h5 class="player_combat" style="left: 50px;">{{ fighter.name }}</h5>
                                 <h6 class="health">{{ fighter.health }}</h6>
                                 <h6 class="initiative">{{ fighter.initiative }}</h6>
-                                <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
+                                <a href="#" role="button" class="btn btn-primary delete_combat"  @click= "deleteFighter(index)" style="display: none;">Delete</a>
                             </li>
                         </ul>
                     </div>
@@ -54,7 +54,10 @@
 		<input type = "text" v-model = updateInitiative placeholder="initiative"></input>
 		<input type = "text" v-model = updateHealth placeholder="health"></input>
 		<input type = "text" v-model = updateAvatar placeholder="avatarurl"></input>
-		<input type = "text" v-model = updateName placeholder="name"></input>
+		<input type = "text" v-model = updateName placeholder="name"></input>								
+		<button class="btn btn-default" @click= "addFighter()">Add</button>
+
+
 
 	</div>
 </template>
@@ -64,6 +67,9 @@ export default {
 	props: {
 		joinlink: {
 			default: ''
+		},
+		gameroomid: {
+			default: -1
 		}
 	},
 
@@ -95,6 +101,23 @@ export default {
 			this.updateHealth= '';
 			this.updateAvatar='';
 			this.updateName= '';
+		},
+		addFighter(){
+			axios.post(joinlink+'/fighters', 
+				{ 	initiative: this.updateInitiative,
+					health: this.updateHealth,
+					avatarurl: this.updateAvatar,
+					name: this.updateName,
+					gameroom_id: this.gameroomid
+				}).then(response => (this.fighters.push(response.data)));
+			this.updateInitiative= '';
+			this.updateHealth= '';
+			this.updateAvatar='';
+			this.updateName= '';
+		},
+		deleteFighter(index){
+			axios.delete(joinlink+'/fighters/'+this.fighters[index].id)
+			.then(response => (this.fighters.splice(index, 1)));
 		}
 	}
 };

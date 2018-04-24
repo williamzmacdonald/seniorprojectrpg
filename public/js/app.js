@@ -48258,11 +48258,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
 		joinlink: {
 			default: ''
+		},
+		gameroomid: {
+			default: -1
 		}
 	},
 
@@ -48300,6 +48306,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.updateHealth = '';
 			this.updateAvatar = '';
 			this.updateName = '';
+		},
+		addFighter: function addFighter() {
+			var _this3 = this;
+
+			axios.post(joinlink + '/fighters', { initiative: this.updateInitiative,
+				health: this.updateHealth,
+				avatarurl: this.updateAvatar,
+				name: this.updateName,
+				gameroom_id: this.gameroomid
+			}).then(function (response) {
+				return _this3.fighters.push(response.data);
+			});
+			this.updateInitiative = '';
+			this.updateHealth = '';
+			this.updateAvatar = '';
+			this.updateName = '';
+		},
+		deleteFighter: function deleteFighter(index) {
+			var _this4 = this;
+
+			axios.delete(joinlink + '/fighters/' + this.fighters[index].id).then(function (response) {
+				return _this4.fighters.splice(index, 1);
+			});
 		}
 	}
 });
@@ -48401,7 +48430,12 @@ var render = function() {
                           {
                             staticClass: "btn btn-primary delete_combat",
                             staticStyle: { display: "none" },
-                            attrs: { href: "#", role: "button" }
+                            attrs: { href: "#", role: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.deleteFighter(index)
+                              }
+                            }
                           },
                           [_vm._v("Delete")]
                         )
@@ -48502,7 +48536,20 @@ var render = function() {
           _vm.updateName = $event.target.value
         }
       }
-    })
+    }),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-default",
+        on: {
+          click: function($event) {
+            _vm.addFighter()
+          }
+        }
+      },
+      [_vm._v("Add")]
+    )
   ])
 }
 var staticRenderFns = [

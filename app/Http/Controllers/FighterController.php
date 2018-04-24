@@ -27,7 +27,9 @@ class FighterController extends Controller
 		$fighter->avatarurl = request('avatarurl');
 		$fighter->initiative = request('initiative');
 		$fighter->gameroom_id = request('gameroom_id');
+		$fighter->enabled = true;
 		$fighter->save();
+		return $fighter;
 		
 	}
 	public function show(string $joinlink)
@@ -57,5 +59,10 @@ class FighterController extends Controller
 
 		$fighter->save();
 		return $fighter;
+	}
+	public function delete(string $joinlink, int $fighter_id)
+	{
+		$fighter = fighter::find($fighter_id);
+		$fighter->delete();
 	}
 }
