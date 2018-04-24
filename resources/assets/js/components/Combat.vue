@@ -33,7 +33,28 @@
                     </div>
                 </div>
             </div>
-            <a role="button" class="btn btn-success absolute" id="add_combat" style="bottom: 0; right: 0; display: none;"><span>Add</span></a>
+            <a role="button" class="btn btn-success absolute" id="add_combat" data-toggle="modal" data-target="#myModal" style="bottom: 0; right: 0; display: none;"><span>Add</span></a>
+			<!-- Button trigger modal -->
+			
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  				<div class="modal-dialog" role="document">
+    				<div class="modal-content">
+      					<div class="modal-header">
+        					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        					<h4 class="modal-title" id="myModalLabel">Fighters</h4>
+      					</div>
+      					<div class="modal-body">
+        					<h5>List of Figters</h5>
+      					</div>
+      					<div class="modal-footer">
+       		 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        					<button type="button" class="btn btn-primary">Add Fighter</button>
+     					</div>
+    				</div>
+  				</div>
+			</div>
         </div>
 		
 		<input type = "text" v-model = updateInitiative placeholder="initiative"></input>
