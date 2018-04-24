@@ -519,6 +519,15 @@ p{
   color: firebrick;
 }
 
+.create-room {
+  background: none;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.create-room:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 .card, .card-info-1,
 .card-info-2, .card-info-3,
 .card-info-4 {
