@@ -53,7 +53,7 @@
                                             @if($key == 0)
                                                 <li id="note-{{$note->id}}" style="margin-left: 10px; width: 325px; border: none;">
                                                     <div onclick="javascript:showNote({{$note->id}});" class="pointer" id="{{$note->id}}">
- 														<button type = "submit" class="btn btn-danger btn-delete btn-xs delete-note" value="{{$note->id}}" style="float: right">X</button>
+ 														<button type="submit" class="btn btn-danger btn-delete btn-xs delete-note" value="{{$note->id}}"><span>X</span></button>
 														<h4>{{ $note->title }}</h4> 
                                                         <p class="font-black" id="body{{$note->id}}" style="display: none;">{{ $note->body }}</p>
                                                     </div>

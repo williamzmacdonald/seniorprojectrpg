@@ -55,6 +55,13 @@
   height: 32px;
 }
 
+.delete-note {
+  border-radius: 50%;
+  float: right;
+  background-color: firebrick !important;
+  width: 25px;
+}
+
 .fighter {
   height: 50px;
   background: none;
