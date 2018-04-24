@@ -76,7 +76,7 @@ class RoomsController extends Controller
 		//fetch pivot
 		if($usergameroom->pivot->gamemaster == 1)
 		{
-			return view('rooms.player', compact('room', 'notes', 'user', 'fighters'));
+			return view('rooms.dm', compact('room', 'notes', 'user', 'fighters'));
 		}
 		else
 		{

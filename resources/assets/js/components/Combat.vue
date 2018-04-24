@@ -1,11 +1,11 @@
 <template>
 	<div class = "container" id="app">
-		<ul>
+		<!--<ul>
 			<li v-for="(fighter, index) in fighters">
-				<button @click= "changeFighter(index)">Update</button>
+				
 				{{ fighter.name }} - {{ fighter.initiative }} - {{ fighter.health }} hp
 			</li>		
-		</ul>
+		</ul>-->
 
 		<div class="row relative" style="margin: 0 auto; width: 60%; padding-bottom: 30px;">
             <div id="combat_list" style="width: 700px; margin-right: 40px;">
@@ -15,16 +15,10 @@
                     <div>
                         <!-- List group -->
                         <ul id="combat" class="list-group">
-                            <li class="list-group-item fighter">
-                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                                <h5 class="player_combat">Name of Player</h5>
-                                <h6 class="health">Health</h6>
-                                <h6 class="initiative">Initiative</h6>
-                                <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
-                            </li>
                             <li v-for="(fighter, index) in fighters" class="list-group-item fighter" style="border-bottom: 1px solid black;">
-                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true"></span>
-                                <h5 class="player_combat">{{ fighter.name }}</h5>
+								<button class="btn btn-default update_combat" @click= "changeFighter(index)" style="display: none;">Update</button>
+                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true" style="left: 25px;"></span>
+                                <h5 class="player_combat" style="left: 50px;">{{ fighter.name }}</h5>
                                 <h6 class="health">{{ fighter.health }}</h6>
                                 <h6 class="initiative">{{ fighter.initiative }}</h6>
                                 <a href="#" role="button" class="btn btn-primary delete_combat" style="display: none;">Delete</a>
