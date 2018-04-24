@@ -55,6 +55,10 @@
   height: 32px;
 }
 
+.avatar-combat {
+  margin-right: 25px;
+}
+
 .delete-note {
   border-radius: 50%;
   float: right;

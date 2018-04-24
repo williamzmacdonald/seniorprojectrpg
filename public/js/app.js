@@ -48258,12 +48258,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
@@ -48320,34 +48314,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container", attrs: { id: "app" } }, [
     _c(
-      "ul",
-      _vm._l(_vm.fighters, function(fighter, index) {
-        return _c("li", [
-          _c(
-            "button",
-            {
-              on: {
-                click: function($event) {
-                  _vm.changeFighter(index)
-                }
-              }
-            },
-            [_vm._v("Update")]
-          ),
-          _vm._v(
-            "\n\t\t\t\t" +
-              _vm._s(fighter.name) +
-              " - " +
-              _vm._s(fighter.initiative) +
-              " - " +
-              _vm._s(fighter.health) +
-              " hp\n\t\t\t"
-          )
-        ])
-      })
-    ),
-    _vm._v(" "),
-    _c(
       "div",
       {
         staticClass: "row relative",
@@ -48385,58 +48351,72 @@ var render = function() {
                 _c(
                   "ul",
                   { staticClass: "list-group", attrs: { id: "combat" } },
-                  [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _vm._l(_vm.fighters, function(fighter, index) {
-                      return _c(
-                        "li",
-                        {
-                          staticClass: "list-group-item fighter",
-                          staticStyle: { "border-bottom": "1px solid black" }
-                        },
-                        [
-                          _c("span", {
-                            staticClass:
-                              "glyphicon glyphicon-user avatar_combat",
-                            attrs: { "aria-hidden": "true" }
-                          }),
-                          _vm._v(" "),
-                          _c("h5", { staticClass: "player_combat" }, [
-                            _vm._v(_vm._s(fighter.name))
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticClass: "health" }, [
-                            _vm._v(_vm._s(fighter.health))
-                          ]),
-                          _vm._v(" "),
-                          _c("h6", { staticClass: "initiative" }, [
-                            _vm._v(_vm._s(fighter.initiative))
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-primary delete_combat",
-                              staticStyle: { display: "none" },
-                              attrs: { href: "#", role: "button" }
-                            },
-                            [_vm._v("Delete")]
-                          )
-                        ]
-                      )
-                    })
-                  ],
-                  2
+                  _vm._l(_vm.fighters, function(fighter, index) {
+                    return _c(
+                      "li",
+                      {
+                        staticClass: "list-group-item fighter",
+                        staticStyle: { "border-bottom": "1px solid black" }
+                      },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn btn-default update_combat",
+                            staticStyle: { display: "none" },
+                            on: {
+                              click: function($event) {
+                                _vm.changeFighter(index)
+                              }
+                            }
+                          },
+                          [_vm._v("Update")]
+                        ),
+                        _vm._v(" "),
+                        _c("span", {
+                          staticClass: "glyphicon glyphicon-user avatar_combat",
+                          staticStyle: { left: "25px" },
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "h5",
+                          {
+                            staticClass: "player_combat",
+                            staticStyle: { left: "50px" }
+                          },
+                          [_vm._v(_vm._s(fighter.name))]
+                        ),
+                        _vm._v(" "),
+                        _c("h6", { staticClass: "health" }, [
+                          _vm._v(_vm._s(fighter.health))
+                        ]),
+                        _vm._v(" "),
+                        _c("h6", { staticClass: "initiative" }, [
+                          _vm._v(_vm._s(fighter.initiative))
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-primary delete_combat",
+                            staticStyle: { display: "none" },
+                            attrs: { href: "#", role: "button" }
+                          },
+                          [_vm._v("Delete")]
+                        )
+                      ]
+                    )
+                  })
                 )
               ])
             ])
           ]
         ),
         _vm._v(" "),
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
-        _vm._m(3)
+        _vm._m(2)
       ]
     ),
     _vm._v(" "),
@@ -48539,33 +48519,6 @@ var staticRenderFns = [
       },
       [_c("span", [_vm._v("Edit")])]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "list-group-item fighter" }, [
-      _c("span", {
-        staticClass: "glyphicon glyphicon-user avatar_combat",
-        attrs: { "aria-hidden": "true" }
-      }),
-      _vm._v(" "),
-      _c("h5", { staticClass: "player_combat" }, [_vm._v("Name of Player")]),
-      _vm._v(" "),
-      _c("h6", { staticClass: "health" }, [_vm._v("Health")]),
-      _vm._v(" "),
-      _c("h6", { staticClass: "initiative" }, [_vm._v("Initiative")]),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass: "btn btn-primary delete_combat",
-          staticStyle: { display: "none" },
-          attrs: { href: "#", role: "button" }
-        },
-        [_vm._v("Delete")]
-      )
-    ])
   },
   function() {
     var _vm = this
