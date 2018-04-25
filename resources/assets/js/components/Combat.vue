@@ -12,22 +12,23 @@
                 <div>
                     <h3 class="assassin uppercase relative" style="text-align: center; background: none; border-bottom: none;">Combat List</h3>
                     <a role="button" class="btn btn-default absolute" id="edit_combat" style="top: 10px;; right: 0; font-size: 12px;"><span>Edit</span></a>
+					<a role="button" class="btn btn-success absolute" id="add_combat" data-toggle="modal" data-target="#myModal" style="top: 10px; right: 50px; font-size: 12px;">Add</a>
                     <div>
                         <!-- List group -->
                         <ul id="combat" class="list-group">
-                            <li v-for="(fighter, index) in fighters" class="list-group-item fighter" style="border-bottom: 1px solid black;">
+                            <li v-for= "(fighter, index) in fighters" class="list-group-item fighter" style="border-bottom: 1px solid black;">
 								<button class="btn btn-default update_combat" @click= "changeFighter(index)" style="display: none;">Update</button>
-                                <span class="glyphicon glyphicon-user avatar_combat"aria-hidden="true" style="left: 25px;"></span>
+                                <span class="glyphicon glyphicon-user avatar_combat" aria-hidden="true" style="left: 25px;"></span>
                                 <h5 class="player_combat" style="left: 50px;">{{ fighter.name }}</h5>
                                 <h6 class="health">{{ fighter.health }}</h6>
                                 <h6 class="initiative">{{ fighter.initiative }}</h6>
-                                <a href="#" role="button" class="btn btn-primary delete_combat"  @click= "deleteFighter(index)" style="display: none;">Delete</a>
+                                <a role="button" class="btn btn-primary delete_combat"  @click= "deleteFighter(index)" style="display: none;">Delete</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <a role="button" class="btn btn-success absolute" id="add_combat" data-toggle="modal" data-target="#myModal" style="bottom: 0; right: 0; display: none;"><span>Add</span></a>
+            
 			<!-- Button trigger modal -->
 			
 
@@ -39,12 +40,49 @@
         					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         					<h4 class="modal-title" id="myModalLabel">Fighters</h4>
       					</div>
-      					<div class="modal-body">
-        					<h5>List of Figters</h5>
+      					<div class="modal-body" style="margin-top: 25px; margin-bottom: 25px;">
+							<form class="form-horizontal">
+								<div class="form-group">
+									<label for="name" class="col-md-4 control-label">
+										<h5 style="margin-top: 5px;">Name</h5>
+									</label>
+
+									<div class="col-md-6">
+										<input class="form-control" type="text" v-model = updateName>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="health" class="col-md-4 control-label">
+										<h5 style="margin-top: 5px;">Health</h5>
+									</label>
+
+									<div class="col-md-6">
+										<input class="form-control" type="text" v-model = updateHealth>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="initiaitve" class="col-md-4 control-label">
+										<h5 style="margin-top: 5px;">Initiative</h5>
+									</label>
+
+									<div class="col-md-6">
+										<input class="form-control" type="text" v-model = updateInitiative>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="avatarurl" class="col-md-4 control-label">
+										<h5 style="margin-top: 5px;">Avatar URL</h5>
+									</label>
+
+									<div class="col-md-6">
+										<input class="form-control" type="text" v-model = updateAvatar>
+									</div>
+								</div>
+							</form>
       					</div>
-      					<div class="modal-footer">
+      					<div class="modal-footer clearfix">
        		 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        					<button type="button" class="btn btn-primary">Add Fighter</button>
+        					<button type="button" class="btn btn-primary" @click= "addFighter()" data-dismiss="modal">Add Fighter</button>
      					</div>
     				</div>
   				</div>
@@ -55,7 +93,7 @@
 		<input type = "text" v-model = updateHealth placeholder="health"></input>
 		<input type = "text" v-model = updateAvatar placeholder="avatarurl"></input>
 		<input type = "text" v-model = updateName placeholder="name"></input>								
-		<button class="btn btn-default" @click= "addFighter()">Add</button>
+		<!--<button class="btn btn-default" @click= "addFighter()">Add</button>-->
 
 
 
