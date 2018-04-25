@@ -8,6 +8,10 @@
 </script>
 @section('content')
 <div class="pages background">
+    <div>
+        <h1 class="assassin font-black uppercase text-center">{{ $room->title }}</h1>
+        <h5 class="assassin font-black uppercase text-center">{{ $room->description }}</h5>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-3">

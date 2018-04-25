@@ -8,6 +8,10 @@
 </script>
 @section('content')
 <div class="pages background">
+    <div>
+        <h1 class="assassin font-black uppercase text-center">{{ $room->title }}</h1>
+        <h5 class="assassin font-black uppercase text-center">{{ $room->description }}</h5>
+    </div>
     <div id="mySidenav" class="sidenav">
         <div class="container">
             <a href="javascript:void(0)" class="closebtn pull-right" onclick="closeNav()">&times;</a>
