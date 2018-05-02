@@ -1,27 +1,21 @@
 <template>
 	<div class = "container" id="app">
-		<!--<ul>
-			<li v-for="(fighter, index) in fighters">
-				
-				{{ fighter.name }} - {{ fighter.initiative }} - {{ fighter.health }} hp
-			</li>		
-		</ul>-->
-
 		<div class="row relative" style="margin: 0 auto; width: 60%; padding-bottom: 30px;">
             <div id="combat_list" style="width: 700px; margin-right: 40px;">
                 <div>
                     <h3 class="assassin uppercase relative" style="text-align: center; background: none; border-bottom: none;">Combat List</h3>
-                    <a role="button" class="btn btn-default absolute" id="edit_combat" style="top: 10px;; right: 0; font-size: 12px;"><span>Edit</span></a>
-					<a role="button" class="btn btn-success absolute" id="add_combat" data-toggle="modal" data-target="#myModal" style="top: 10px; right: 50px; font-size: 12px;">Add</a>
+                    <a role="button" class="btn btn-default absolute" id="edit_combat" data-toggle="modal" data-target="#myModal" style="top: 10px;; right: 0; font-size: 12px;"><span>Edit</span></a>
+					<!--<a role="button" class="btn btn-success absolute" id="add_combat" data-toggle="modal" data-target="#myModal" style="top: 10px; right: 50px; font-size: 12px;">Add</a>-->
                     <div>
                         <!-- List group -->
                         <ul id="combat" class="list-group">
                             <li v-for= "(fighter, index) in fighters" class="list-group-item fighter" style="border-bottom: 1px solid black;">
-								<button class="btn btn-default update_combat" @click= "changeFighter(index)" style="display: none;">Update</button>
+								<button class="btn btn-default update_combat" @click= "changeFighter(index)" style="display: none;" data-toggle="modal" data-target="#myModal2">Update</button>
                                 <span class="glyphicon glyphicon-user avatar_combat" aria-hidden="true" style="left: 25px;"></span>
-                                <h5 class="player_combat" style="left: 50px;">{{ fighter.name }}</h5>
-                                <h6 class="health">{{ fighter.health }}</h6>
-                                <h6 class="initiative">{{ fighter.initiative }}</h6>
+                                <h5 class="player_combat" style="left: 50px;" v-model = updateName>{{ fighter.name }}</h5>
+                                <h6 class="health" v-model = updateHealth >{{ fighter.health }}</h6>
+                                <h6 class="initiative" v-model = updateInitiative>{{ fighter.initiative }}</h6>
+								<h6 v-model = updateAvatar style="display: none;">{{ fighter.avatarurl}}</h6>
                                 <a role="button" class="btn btn-primary delete_combat"  @click= "deleteFighter(index)" style="display: none;">Delete</a>
                             </li>
                         </ul>
@@ -29,9 +23,6 @@
                 </div>
             </div>
             
-			<!-- Button trigger modal -->
-			
-
 			<!-- Modal -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   				<div class="modal-dialog" role="document">
@@ -40,7 +31,17 @@
         					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         					<h4 class="modal-title" id="myModalLabel">Fighters</h4>
       					</div>
-      					<div class="modal-body" style="margin-top: 25px; margin-bottom: 25px;">
+      					<div class="modal-body relative" style="margin-top: 25px; margin-bottom: 25px;">
+							<li v-for= "(fighter, index) in fighters" class="list-group-item fighter">
+								<button class="btn btn-default update_combat" @click= "changeFighter(index)" style="display: block;">Update</button>
+								<span class="glyphicon glyphicon-user avatar_combat" aria-hidden="true" style="left: 100px;"></span>
+								<h5 class="player_combat" style="left: 125px;" v-model = updateName>{{ fighter.name }}</h5>
+								<h6 class="health" v-model = updateHealth style="right: 150px;">{{ fighter.health }}</h6>
+								<h6 class="initiative" v-model = updateInitiative style="right: 75px;">{{ fighter.initiative }}</h6>
+								<a role="button" class="btn btn-primary delete_combat"  @click= "deleteFighter(index)" style="display: block;">Delete</a>
+							</li>
+
+							<div class="text-center" style="margin-top: 20px; margin-bottom: 20px;">OR</div>
 							<form class="form-horizontal">
 								<div class="form-group">
 									<label for="name" class="col-md-4 control-label">
@@ -79,24 +80,17 @@
 									</div>
 								</div>
 							</form>
+							<div class="relative" style="height: 20px;">
+								<button type="button" class="btn btn-primary absolute" style="right: 20px; top: 10px;" @click= "addFighter()" data-dismiss="modal">Add Fighter</button>
+							</div>
       					</div>
       					<div class="modal-footer clearfix">
        		 				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        					<button type="button" class="btn btn-primary" @click= "addFighter()" data-dismiss="modal">Add Fighter</button>
      					</div>
     				</div>
   				</div>
 			</div>
         </div>
-		
-		<input type = "text" v-model = updateInitiative placeholder="initiative"></input>
-		<input type = "text" v-model = updateHealth placeholder="health"></input>
-		<input type = "text" v-model = updateAvatar placeholder="avatarurl"></input>
-		<input type = "text" v-model = updateName placeholder="name"></input>								
-		<!--<button class="btn btn-default" @click= "addFighter()">Add</button>-->
-
-
-
 	</div>
 </template>
 

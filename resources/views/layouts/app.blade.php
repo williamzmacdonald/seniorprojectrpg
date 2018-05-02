@@ -26,8 +26,7 @@
         <!-- Scripts -->
 
         <script src="{{ asset('js/app.js') }}"></script>
-        <script src="{{ asset('js/notes.js') }}"></script>
-        <script src="{{ asset('js/combat.js') }}"></script> 
+        <script src="{{ asset('js/notes.js') }}"></script> 
         <script src="{{ asset('js/popup.js') }}"></script>
         <script src="{{ asset('js/draganddrop.js') }}"></script> 
         <!-- production version, optimized for size and speed -->

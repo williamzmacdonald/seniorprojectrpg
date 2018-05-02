@@ -79,6 +79,7 @@
             </div>
         </div>
 
+        
         <combat joinlink={{ $room->joinlink }} gameroomid={{ $room->id }} style="margin-top: 50px;"></combat>
 
         <h3 class="font-30 font-black assassin uppercase" id="add" style="text-align: center; margin-top: 150px;">Add Content Here</h3>
