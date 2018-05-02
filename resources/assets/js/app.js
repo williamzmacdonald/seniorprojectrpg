@@ -16,6 +16,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('combat',require('./components/Combat.vue'));
+Vue.component('combatplayer',require('./components/CombatPlayer.vue'));
 
 const app = new Vue({
     el: '#app'

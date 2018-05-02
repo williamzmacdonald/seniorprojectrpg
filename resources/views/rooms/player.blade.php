@@ -12,7 +12,7 @@
         <h1 class="assassin font-black uppercase text-center">{{ $room->title }}</h1>
         <h5 class="assassin font-black uppercase text-center">{{ $room->description }}</h5>
     </div>
-    <div class="container">
+    <div class="container" style="margin-top: 50px;">
         <div class="row">
             <div class="col-sm-3">
                 <div class="card">
@@ -81,35 +81,7 @@
             </div>
         </div>
 
-        <div class="row" style="margin: 0 auto; width: 80%;">
-            <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">
-                <h3>Combat</h3>
-            </div>
-            <div style="margin: 0 auto; width: 70%;">
-                <!-- List group -->
-                @if ($fighters->count() >= 1)
-                <ul id="combat" class="list-group">
-                    @foreach ($fighters as $key=>$fighter)
-                        @if($key == 0)
-                        <li class="list-group-item fighter">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                            <h5>{{ $fighter->name }}</h5>
-                            <h6 class="health">{{ $fighter->health }}</h6>
-                            <h6 class="initiative">{{ $fighter->initiative }}</h6>
-                        </li>
-                        @else
-                            <li class="list-group-item fighter" style="border-top: 1px black solid;">
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                <h5>{{ $fighter->name }}</h5>
-                                <h6 class="health">{{ $fighter->health }}</h6>
-                                <h6 class="initiative">{{ $fighter->initiative }}</h6>
-                            </li>
-                        @endif
-                    @endforeach
-                </ul>
-                @endif
-            </div>
-        </div>
+        <combatplayer joinlink={{ $room->joinlink }} gameroomid={{ $room->id }} style="margin-top: 50px;"></combatplayer>
 
         <div class="row relative" style="margin: 0 auto; width: 80%;">
             <div class="assassin uppercase" style="text-align: center; background: none; border-bottom: none;">

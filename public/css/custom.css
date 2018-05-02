@@ -15,6 +15,16 @@
   url('../fonts/vendor/bootstrap-sass/bootstrap/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
 
+.logo {
+  background: url("../img/bg.jpg");
+  background-size: 50px;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 0 2px 2px black inset;
+}
+
 .absolute {
   position: absolute;
 }
@@ -185,7 +195,7 @@
 }
 
 .background {
-  background-image: url(../img/parch.jpg);
+  background-image: url("../img/parch.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -210,7 +220,7 @@ html {
 }
 
 body{
-  background-image: url(../img/parch.jpg);
+  background-image: url("../img/parch.jpg");
   background-repeat: repeat-y;
   color: white;
   margin-bottom: 60px;
@@ -220,7 +230,7 @@ body{
   width: 100%;
   min-height: 750px;
   padding: 250px 0;
-  background: url(../img/room-bg.jpg) no-repeat bottom center scroll;
+  background: url("../img/room-bg.jpg") no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -355,7 +365,7 @@ p{
   color: white;
   width: 250px;
   height: 330px;
-  background: url(../img/avatar.jpg) no-repeat top center scroll;
+  background: url("../img/avatar.jpg") no-repeat top center scroll;
   background-size: 250px 330px;
 }
 
@@ -387,13 +397,6 @@ p{
   color: black;
 }
 
-.border{
-  border: 7.5px solid;
-  -webkit-border-image: url(../img/border.png) 30 round; /* Safari 3.1-5 */
-  -o-border-image: url(../img/border.png) 30 round; /* Opera 11-12.1 */
-  border-image: url(../img/border.png) 30 round;
-}
-
 .panel-inform {
   float: left;
   width: 375px;
@@ -401,7 +404,7 @@ p{
 }
 
 .parch{
-  background: url(../img/parchment.jpg) no-repeat top center scroll;
+  background: url("../img/parchment.jpg") no-repeat top center scroll;
   background-size: 500px 500px;
 }
 
@@ -417,7 +420,7 @@ p{
 }
 
 .square {
-  background: url(../img/tanis.jpg) 60% 15% no-repeat; 
+  background: url("../img/tanis.jpg") 60% 15% no-repeat; 
   width: 200px; 
   height: 200px; 
 }
@@ -450,13 +453,13 @@ p{
   bottom: 0px;
   right: 220px;
   height: 285px;
-  background: url(../img/parchment.jpg);
+  background: url("../img/parchment.jpg");
   background-color: rgb(237, 239, 244);
   width: 300px;
   border: 5px solid;
-  -webkit-border-image: url(../img/border.png) 30 round; /* Safari 3.1-5 */
-  -o-border-image: url(../img/border.png) 30 round; /* Opera 11-12.1 */
-  border-image: url(../img/border.png) 30 round;
+  -webkit-border-image: url("../img/border.png") 30 round; /* Safari 3.1-5 */
+  -o-border-image: url("../img/border.png") 30 round; /* Opera 11-12.1 */
+  border-image: url("../img/border.png") 30 round;
 }
             
 .popup-box .popup-head {
@@ -466,7 +469,7 @@ p{
   font-weight: bold;
   font-size: 14px;
   clear: both;
-  background: url(../img/wood.jpg);
+  background: url("../img/wood.jpg");
 }
             
 .popup-box .popup-head .popup-head-left {
