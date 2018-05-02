@@ -8,15 +8,18 @@
             </button>
 
             <!-- Branding Image -->
-            <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 24px;">
-                EVOLVED
+            <a class="navbar-brand relative" href="{{ url('/') }}" style="font-size: 24px;">
+                <img class="absolute" src="img/bg.png" style="height: 50px; top: 0;" alt="Image" />
             </a>
         </div>
 
             
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav relative">
+                <li class="nav-item absolute" style="left: 20px;">
+                    <a class="nav-link" id="title" href="{{ url('/') }}" style="font-size: 30px;">EVOLVED</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('about') }}">about</a>
                 </li>

@@ -98,6 +98,10 @@
   right: 25px;
 }
 
+#title:hover{
+  color: white;
+}
+
 .font-20 {
   font-size: 20px;
 }
@@ -230,7 +234,6 @@ body{
   padding: 150px 0;
   text-align: center;
   color: white;
-  background: url(../img/bg.png) no-repeat bottom center scroll;
   background-color: black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
