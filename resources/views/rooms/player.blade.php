@@ -87,38 +87,27 @@
             </div>
             <div style="margin: 0 auto; width: 70%;">
                 <!-- List group -->
+                @if ($fighters->count() >= 1)
                 <ul id="combat" class="list-group">
-                    <li class="list-group-item fighter">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
-                    <li class="list-group-item fighter">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
-                    <li class="list-group-item fighter">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>    
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
-                    <li class="list-group-item fighter">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
-                    <li class="list-group-item fighter" style="border-bottom: none;">
-                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        <h5>Name of Player</h5>
-                        <h6 class="health">Health</h6>
-                        <h6 class="initiative">Initiative</h6>
-                    </li>
+                    @foreach ($fighters as $key=>$fighter)
+                        @if($key == 0)
+                        <li class="list-group-item fighter">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                            <h5>{{ $fighter->name }}</h5>
+                            <h6 class="health">{{ $fighter->health }}</h6>
+                            <h6 class="initiative">{{ $fighter->initiative }}</h6>
+                        </li>
+                        @else
+                            <li class="list-group-item fighter" style="border-top: 1px black solid;">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                <h5>{{ $fighter->name }}</h5>
+                                <h6 class="health">{{ $fighter->health }}</h6>
+                                <h6 class="initiative">{{ $fighter->initiative }}</h6>
+                            </li>
+                        @endif
+                    @endforeach
                 </ul>
+                @endif
             </div>
         </div>
 
