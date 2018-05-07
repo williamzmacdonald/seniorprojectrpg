@@ -119,6 +119,9 @@ export default {
 
 	mounted(){
 		axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
+		window.Echo.channel('combats').listen('combatUpdated', e=>{
+			axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
+		});
 	},
 
 	methods: {

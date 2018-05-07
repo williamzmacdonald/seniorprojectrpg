@@ -1,5 +1,4 @@
 <?php
-use App\Events\combatUpdated;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,9 +30,7 @@ Route::delete('rooms/{room}/fighters/{fighter}', 'FighterController@delete');
 Route::put('rooms/{room}/fighters/{fighter}', 'FighterController@update');
 
 
-Route::get('/rooms/{room}/update', function(string $joinlink){
-	combatUpdated::dispatch();
-});
+
 
 Auth::routes();
 

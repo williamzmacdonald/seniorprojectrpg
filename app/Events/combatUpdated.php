@@ -14,15 +14,15 @@ class combatUpdated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-	public $foo = 'bar';
+	public $fighter;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($fighter)
     {
-        //
+        $this->fighter = $fighter;
     }
 
     /**

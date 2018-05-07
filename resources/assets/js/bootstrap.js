@@ -54,8 +54,3 @@ window.Echo = new Echo({
     encrypted: true
 });
 
-window.Echo.channel('combats')
-	.listen('combatUpdated', e => {
-		console.log('Combat has been updated behind the scenes.');
-		console.log(e);
-	});

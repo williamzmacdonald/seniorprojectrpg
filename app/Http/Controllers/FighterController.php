@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\combatUpdated;
 use Illuminate\Http\Request;
 use App\gameroom;
 use App\fighter;
@@ -29,6 +30,7 @@ class FighterController extends Controller
 		$fighter->gameroom_id = request('gameroom_id');
 		$fighter->enabled = true;
 		$fighter->save();
+		event(new combatUpdated($fighter))->dontBroadcastToCurrentUser();
 		return $fighter;
 		
 	}
@@ -56,13 +58,15 @@ class FighterController extends Controller
 			$fighter->avatarurl = request('avatarurl');
 		if(request('name') != null)
 			$fighter->name = request('name');
-
 		$fighter->save();
+		event(new combatUpdated($fighter))->dontBroadcastToCurrentUser();
 		return $fighter;
 	}
 	public function delete(string $joinlink, int $fighter_id)
 	{
 		$fighter = fighter::find($fighter_id);
 		$fighter->delete();
+		event(new combatUpdated($fighter))->dontBroadcastToCurrentUser();
+
 	}
 }
