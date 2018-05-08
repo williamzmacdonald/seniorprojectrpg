@@ -1121,9 +1121,9 @@ window._ = __webpack_require__(13);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(15);
+    window.$ = window.jQuery = __webpack_require__(15);
 
-  __webpack_require__(16);
+    __webpack_require__(16);
 } catch (e) {}
 
 /**
@@ -1145,9 +1145,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**
@@ -1161,15 +1161,10 @@ if (token) {
 window.Pusher = __webpack_require__(37);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
-  broadcaster: 'pusher',
-  key: '458834645f7afa274397',
-  cluster: 'us2',
-  encrypted: true
-});
-
-window.Echo.channel('combats').listen('combatUpdated', function (e) {
-  console.log('Combat has been updated behind the scenes.');
-  console.log(e);
+    broadcaster: 'pusher',
+    key: '458834645f7afa274397',
+    cluster: 'us2',
+    encrypted: true
 });
 
 /***/ }),
@@ -1190,7 +1185,7 @@ window.Echo.channel('combats').listen('combatUpdated', function (e) {
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.10';
+  var VERSION = '4.17.5';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
@@ -1614,14 +1609,6 @@ window.Echo.channel('combats').listen('combatUpdated', function (e) {
   /** Used to access faster Node.js helpers. */
   var nodeUtil = (function() {
     try {
-      // Use `util.types` for Node.js 10+.
-      var types = freeModule && freeModule.require && freeModule.require('util').types;
-
-      if (types) {
-        return types;
-      }
-
-      // Legacy `process.binding('util')` for Node.js < 10.
       return freeProcess && freeProcess.binding && freeProcess.binding('util');
     } catch (e) {}
   }());
@@ -48313,6 +48300,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+function sortArray(fighters) {
+	return fighters.sort(function (a, b) {
+		return a.initiative < b.initiative;
+	});
+}
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
 		joinlink: {
@@ -48339,6 +48331,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		axios.get(joinlink + '/reload').then(function (response) {
 			return _this.fighters = response.data;
 		});
+		window.Echo.channel('combats').listen('combatUpdated', function (e) {
+			if (e.action == "store") {
+				_this.fighters.push(e.fighter);
+				_this.fighters = sortArray(_this.fighters);
+			} else if (e.action == "update") {
+				Vue.set(_this.fighters, e.index, e.fighter);
+				_this.fighters = sortArray(_this.fighters);
+			} else if (e.action == "delete") {
+				_this.fighters.splice(e.index, 1);
+				_this.fighters = sortArray(_this.fighters);
+			}
+			//axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
+		});
 	},
 
 
@@ -48349,9 +48354,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			axios.put(joinlink + '/fighters/' + this.fighters[index].id, { initiative: this.updateInitiative,
 				health: this.updateHealth,
 				avatarurl: this.updateAvatar,
-				name: this.updateName
+				name: this.updateName,
+				i: index
 			}).then(function (response) {
-				return Vue.set(_this2.fighters, index, response.data);
+				Vue.set(_this2.fighters, index, response.data);
+				_this2.fighters = sortArray(_this2.fighters);
 			});
 			this.updateInitiative = '';
 			this.updateHealth = '';
@@ -48367,7 +48374,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				name: this.updateName,
 				gameroom_id: this.gameroomid
 			}).then(function (response) {
-				return _this3.fighters.push(response.data);
+				_this3.fighters.push(response.data);
+				_this3.fighters = sortArray(_this3.fighters);
 			});
 			this.updateInitiative = '';
 			this.updateHealth = '';
@@ -48377,8 +48385,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		deleteFighter: function deleteFighter(index) {
 			var _this4 = this;
 
-			axios.delete(joinlink + '/fighters/' + this.fighters[index].id).then(function (response) {
-				return _this4.fighters.splice(index, 1);
+			console.log(index);
+			axios.delete(joinlink + '/fighters/' + this.fighters[index].id, {
+				params: { i: index }
+			}).then(function (response) {
+				_this4.fighters.splice(index, 1);
+				_this4.fighters = sortArray(_this4.fighters);
 			});
 		}
 	}
@@ -49037,6 +49049,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+function sortArray(fighters) {
+	return fighters.sort(function (a, b) {
+		return a.initiative < b.initiative;
+	});
+}
 /* harmony default export */ __webpack_exports__["default"] = ({
 	props: {
 		joinlink: {
@@ -49062,6 +49079,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 		axios.get(joinlink + '/reload').then(function (response) {
 			return _this.fighters = response.data;
+		});
+		window.Echo.channel('combats').listen('combatUpdated', function (e) {
+			console.log(e.index);
+			if (e.action == "store") {
+				_this.fighters.push(e.fighter);
+				_this.fighters = sortArray(_this.fighters);
+			} else if (e.action == "update") {
+				Vue.set(_this.fighters, e.index, e.fighter);
+				_this.fighters = sortArray(_this.fighters);
+			} else if (e.action == "delete") {
+				_this.fighters.splice(e.index, 1);
+				_this.fighters = sortArray(_this.fighters);
+			}
+			//axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
 		});
 	}
 });

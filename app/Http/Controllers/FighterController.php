@@ -30,7 +30,7 @@ class FighterController extends Controller
 		$fighter->gameroom_id = request('gameroom_id');
 		$fighter->enabled = true;
 		$fighter->save();
-		event(new combatUpdated($fighter))->dontBroadcastToCurrentUser();
+		event(new combatUpdated($fighter, "store", -1));
 		return $fighter;
 		
 	}
@@ -59,14 +59,13 @@ class FighterController extends Controller
 		if(request('name') != null)
 			$fighter->name = request('name');
 		$fighter->save();
-		event(new combatUpdated($fighter))->dontBroadcastToCurrentUser();
+		event(new combatUpdated($fighter, "update", request('i')));
 		return $fighter;
 	}
 	public function delete(string $joinlink, int $fighter_id)
 	{
 		$fighter = fighter::find($fighter_id);
+		event(new combatUpdated($fighter, "delete", request('i')));
 		$fighter->delete();
-		event(new combatUpdated($fighter))->dontBroadcastToCurrentUser();
-
 	}
 }

@@ -24,6 +24,9 @@
 </template>
 
 <script>
+function sortArray(fighters){
+	return fighters.sort((a, b) => a.initiative < b.initiative);
+}
 export default {
 	props: {
 		joinlink: {
@@ -48,6 +51,22 @@ export default {
 
 	mounted(){
 		axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
+		window.Echo.channel('combats').listen('combatUpdated', e=>{
+			console.log(e.index);
+			if(e.action == "store"){
+				this.fighters.push(e.fighter);
+				this.fighters = sortArray(this.fighters);
+			}
+			else if(e.action == "update"){
+				Vue.set(this.fighters, e.index, e.fighter);
+				this.fighters = sortArray(this.fighters);
+			}
+			else if(e.action == "delete"){
+				this.fighters.splice(e.index, 1);
+				this.fighters = sortArray(this.fighters);
+			}
+			//axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
+		});
 	},
 };
 </script>

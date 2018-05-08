@@ -105,6 +105,9 @@
 </template>
 
 <script>
+function sortArray(fighters){
+	return fighters.sort((a, b) => a.initiative < b.initiative);
+}
 export default {
 	props: {
 		joinlink: {
@@ -130,7 +133,19 @@ export default {
 	mounted(){
 		axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
 		window.Echo.channel('combats').listen('combatUpdated', e=>{
-			axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
+			if(e.action == "store"){
+				this.fighters.push(e.fighter);
+				this.fighters = sortArray(this.fighters);
+			}
+			else if(e.action == "update"){
+				Vue.set(this.fighters, e.index, e.fighter);
+				this.fighters = sortArray(this.fighters);
+			}
+			else if(e.action == "delete"){
+				this.fighters.splice(e.index, 1);
+				this.fighters = sortArray(this.fighters);
+			}
+			//axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
 		});
 	},
 
@@ -140,8 +155,12 @@ export default {
 				{ 	initiative: this.updateInitiative,
 					health: this.updateHealth,
 					avatarurl: this.updateAvatar,
-					name: this.updateName
-				}).then(response => (Vue.set(this.fighters, index, response.data)));
+					name: this.updateName,
+					i: index
+				}).then((response)=>{
+					Vue.set(this.fighters, index, response.data);
+					this.fighters = sortArray(this.fighters);
+				});
 			this.updateInitiative= '';
 			this.updateHealth= '';
 			this.updateAvatar='';
@@ -154,15 +173,25 @@ export default {
 					avatarurl: this.updateAvatar,
 					name: this.updateName,
 					gameroom_id: this.gameroomid
-				}).then(response => (this.fighters.push(response.data)));
+				}).then((response)=>{
+					this.fighters.push(response.data);
+					this.fighters = sortArray(this.fighters);
+				});
 			this.updateInitiative= '';
 			this.updateHealth= '';
 			this.updateAvatar='';
 			this.updateName= '';
+			
 		},
 		deleteFighter(index){
-			axios.delete(joinlink+'/fighters/'+this.fighters[index].id)
-			.then(response => (this.fighters.splice(index, 1)));
+			console.log(index);
+			axios.delete(joinlink+'/fighters/'+this.fighters[index].id,
+			{
+				params: { i: index }
+			}).then((response)=>{
+				this.fighters.splice(index, 1);
+				this.fighters = sortArray(this.fighters);
+			});
 		}
 	}
 };
