@@ -41,7 +41,7 @@
                         <a role="button" class="btn btn-primary" id="go_back"><span >&#8592;</span></a>
                         <div id="note" style="display: none;">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="title" name ="title" placeholder="Title"></input>
+                                <input type="text" class="form-control" id="title-1" name ="title" placeholder="Title"></input>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" id="area" rows="10" cols="50" placeholder="Description"></textarea>

@@ -68,7 +68,7 @@ $(document).ready(function(){
 		}
 		});
 		var formData = {
-			title: $("#title").val(),
+			title: $("#title-1").val(),
 			body: $("#area").val(),
 			gameroom_id: gameroom_id,
 			user_id: user_id
@@ -125,7 +125,7 @@ $(document).ready(function(){
 
 $('#cl').click(function clear() {
 	document.getElementById('area').value = "";
-	document.getElementById('title').value = ""; 
+	document.getElementById('title-1').value = ""; 
 });
 
 $('#add_new').click(function addnew() {
