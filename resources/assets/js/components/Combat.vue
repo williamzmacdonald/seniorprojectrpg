@@ -1,3 +1,4 @@
+<!--A template for the combat tracker -->
 <template>
 	<div class = "container" id="app">
 		<div class="row relative" style="margin: 0 auto; width: 60%; padding-bottom: 30px;">
@@ -23,7 +24,7 @@
                 </div>
             </div>
             
-			<!-- Modal -->
+			<!-- Modal  that allows the lobby admin to add or remove combatants-->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   				<div class="modal-dialog" role="document">
     				<div class="modal-content">
@@ -105,9 +106,11 @@
 </template>
 
 <script>
+//combatants are sorted by their initiatives
 function sortArray(fighters){
 	return fighters.sort((a, b) => a.initiative < b.initiative);
 }
+//initialize empty fighters array
 export default {
 	props: {
 		joinlink: {
@@ -129,8 +132,10 @@ export default {
 		};
 	},
 
-
+//axios allows for simple ajax calls when the route manager calls for it
 	mounted(){
+		//handles get request and acts appropriately
+		//also listens for the combat updated event from Pusher  
 		axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
 		window.Echo.channel('combats').listen('combatUpdated', e=>{
 			if(e.action == "store"){
@@ -148,7 +153,11 @@ export default {
 			//axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
 		});
 	},
-
+	/*
+	Each method happens whenever an admin updates the combat list in any way, then uses axios' request
+	and passes necessary data for each type of update
+	They then use the data from the response to update the current page's fighter list 
+	*/
 	methods: {
 		changeFighter(index){
 			axios.put(joinlink+'/fighters/'+this.fighters[index].id, 

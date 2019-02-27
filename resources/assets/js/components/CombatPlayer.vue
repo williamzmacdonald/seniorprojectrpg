@@ -24,9 +24,11 @@
 </template>
 
 <script>
+//sorts fighters by initiative
 function sortArray(fighters){
 	return fighters.sort((a, b) => a.initiative < b.initiative);
 }
+//initializes empty fighters
 export default {
 	props: {
 		joinlink: {
@@ -48,7 +50,7 @@ export default {
 		};
 	},
 
-
+//listens for a combatUpdated event and reacts appropriately based on the action required
 	mounted(){
 		axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
 		window.Echo.channel('combats').listen('combatUpdated', e=>{
@@ -65,7 +67,7 @@ export default {
 				this.fighters.splice(e.index, 1);
 				this.fighters = sortArray(this.fighters);
 			}
-			//axios.get(joinlink+'/reload').then(response => (this.fighters = response.data));
+			
 		});
 	},
 };
